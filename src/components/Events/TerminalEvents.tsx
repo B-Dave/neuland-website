@@ -2,6 +2,7 @@
 import TerminalTypeWriter from '@/components/Events/TerminalTypeWriter'
 import TerminalWindow from '@/components/Events/TerminalWindow'
 import TerminalSection from '@/components/Layout/TerminalSection'
+import TerminalButton from '@/components/TerminalButton'
 import TerminalList from '@/components/TerminalList'
 import { cn } from '@/lib/utils'
 import { fetchEvents } from '@/services/events'
@@ -285,17 +286,13 @@ const TerminalEvents: React.FC = () => {
 				</TerminalWindow>
 
 				<div className="flex sm:justify-end -mt-4 ">
-					<button
-						onClick={openCalModal}
-						className="group inline-flex items-center justify-center px-4 py-2 border border-terminal-cyan text-terminal-cyan bg-transparent hover:bg-terminal-cyan hover:text-terminal-bg transition-colors duration-300 rounded"
-						type="button"
-					>
+					<TerminalButton onClick={openCalModal}>
 						<CalendarIcon
 							size={16}
-							className="mr-2 group-hover:rotate-10 transition-transform duration-300"
+							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 						/>
 						Events abbonieren
-					</button>
+					</TerminalButton>
 				</div>
 
 				<CalendarModal
