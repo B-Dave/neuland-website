@@ -28,6 +28,21 @@ const TerminalHeader: React.FC = () => {
 		navigate.replace('/')
 	}
 
+	const scrollToMembership = (e: React.MouseEvent) => {
+		e.preventDefault()
+		const membershipSection = document.getElementById('membership')
+		if (membershipSection) {
+			const headerHeight = 80
+			const elementPosition =
+				membershipSection.getBoundingClientRect().top + window.scrollY
+
+			window.scrollTo({
+				top: elementPosition - headerHeight,
+				behavior: 'smooth'
+			})
+		}
+	}
+
 	return (
 		<div
 			className={`terminal-nav fixed top-0 left-0 right-0 flex justify-between items-center py-4 border-b border-terminal-window-border z-50 transition-all duration-200 ${scrolled ? 'bg-terminal-bg/60 backdrop-blur-md' : 'bg-terminal-bg'}`}
@@ -59,7 +74,17 @@ const TerminalHeader: React.FC = () => {
 					)}
 				</div>
 				<nav className="terminal-menu">
-					<ul className="flex gap-2">
+					<ul className="flex gap-2 items-center">
+						<li className="hidden md:block">
+							<Link
+								type="button"
+								href="#membership"
+								onClick={scrollToMembership}
+								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text hover:text-terminal-cyan"
+							>
+								<span>Mitglied werden</span>
+							</Link>
+						</li>
 						<li>
 							<a
 								href="https://blog.neuland-ingolstadt.de/"
@@ -70,6 +95,7 @@ const TerminalHeader: React.FC = () => {
 								Blog
 							</a>
 						</li>
+
 						<li>
 							<a
 								href="https://wiki.informatik.sexy/books/einfuhrung/page/willkommen"
