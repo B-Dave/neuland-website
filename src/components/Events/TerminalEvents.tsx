@@ -6,8 +6,9 @@ import TerminalList from '@/components/TerminalList'
 import { cn } from '@/lib/utils'
 import { fetchEvents } from '@/services/events'
 import { useQuery } from '@tanstack/react-query'
-import { LucideArrowBigLeft } from 'lucide-react'
+import { CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
 import React, { useState, useCallback, useRef, useEffect } from 'react'
+import CalendarModal from './CalendarModal'
 
 const TerminalEvents: React.FC = () => {
 	const {
@@ -29,6 +30,8 @@ const TerminalEvents: React.FC = () => {
 	)
 	const containerRef = useRef<HTMLDivElement>(null)
 	const [containerHeight, setContainerHeight] = useState<number | null>(null)
+	const [isCalModalOpen, setIsCalModalOpen] = useState(false)
+	const icalUrl = 'https://ical.neuland.app/neuland-events.ics'
 
 	const handleEventClick = useCallback(
 		(index: number) => {
@@ -47,6 +50,14 @@ const TerminalEvents: React.FC = () => {
 	const resetSelectedEvent = useCallback(() => {
 		setSelectedEventIndex(null)
 		setContainerHeight(null)
+	}, [])
+
+	const openCalModal = useCallback(() => {
+		setIsCalModalOpen(true)
+	}, [])
+
+	const closeCalModal = useCallback(() => {
+		setIsCalModalOpen(false)
 	}, [])
 
 	useEffect(() => {
@@ -272,6 +283,26 @@ const TerminalEvents: React.FC = () => {
 						</TerminalList>
 					</div>
 				</TerminalWindow>
+
+				<div className="flex sm:justify-end -mt-4 ">
+					<button
+						onClick={openCalModal}
+						className="group inline-flex items-center justify-center px-4 py-2 border border-terminal-cyan text-terminal-cyan bg-transparent hover:bg-terminal-cyan hover:text-terminal-bg transition-colors duration-300 rounded"
+						type="button"
+					>
+						<CalendarIcon
+							size={16}
+							className="mr-2 group-hover:rotate-10 transition-transform duration-300"
+						/>
+						Events abbonieren
+					</button>
+				</div>
+
+				<CalendarModal
+					isOpen={isCalModalOpen}
+					onClose={closeCalModal}
+					icalUrl={icalUrl}
+				/>
 			</div>
 		</TerminalSection>
 	)
