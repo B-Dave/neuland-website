@@ -1,6 +1,6 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Calendar, ForkKnife, MapPin } from 'lucide-react'
+import { ArrowUpRight, Calendar, ForkKnife, MapPin } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import FeatureItem from './FeatureItem'
 import TerminalButton from './TerminalButton'
@@ -189,11 +189,11 @@ const NextAppShowcase = () => {
 								</a>
 							</div>
 							<TerminalButton href="https://next.neuland.app">
-								<MapPin
+								<ArrowUpRight
 									size={16}
 									className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 								/>
-								Weitere Infos
+								Mehr erfahren
 							</TerminalButton>
 						</motion.div>
 					</div>
