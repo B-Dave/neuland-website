@@ -291,7 +291,7 @@ const TerminalEvents: React.FC = () => {
 							size={16}
 							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 						/>
-						Events abbonieren
+						Events abonnieren
 					</TerminalButton>
 				</div>
 
