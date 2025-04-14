@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin 'tailwindcss-animate';
 
 @theme {
@@ -42,6 +41,9 @@
 	--animate-cyberpunk: cyberpunk-glow 1.5s ease-in-out infinite;
 
 	--font-mono: var(--font-mono), Source Code Pro, monospace;
+	--font-fantasy: var(--font-fantasy), Shantell Sans, fantasy;
+	--font-sans:
+		var(--font-sans), "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
 	@keyframes cursor {
 		0%,
@@ -96,6 +98,8 @@
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--font-mono: var(--font-mono);
+	--font-fantasy: var(--font-fantasy);
+	--font-sans: var(--font-sans);
 }
 
 /*
@@ -120,6 +124,10 @@
 	body {
 		font-family: var(--font-mono);
 	}
+
+	html {
+		@apply scroll-smooth;
+	}
 }
 
 @layer base {
@@ -134,24 +142,34 @@
 		font-family: var(--font-mono);
 		background-color: #000000;
 		color: #ffffff;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply font-bold mb-4 text-terminal-cyan;
-		font-family: var(--font-mono);
+	/* Add specific heading styles for articles */
+	article h1 {
+		@apply text-3xl font-bold mb-4 text-terminal-cyan font-mono;
 	}
-
-	h2 {
-		@apply text-xl sm:text-2xl relative;
+	article h2 {
+		@apply text-2xl font-bold mt-12 pb-2 text-terminal-cyan font-mono;
+	}
+	article h3 {
+		@apply text-xl font-bold mt-10 pb-2 text-terminal-cyan font-mono;
+	}
+	article h4 {
+		@apply text-lg font-bold mt-8 pb-2 text-terminal-cyan font-mono;
+	}
+	article h5 {
+		@apply text-base font-bold mt-8 pb-2 text-terminal-cyan font-mono;
+	}
+	article h6 {
+		@apply text-sm font-bold mt-6 pb-2 text-terminal-cyan font-mono;
 	}
 
 	p {
 		@apply mb-6;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	a {
@@ -173,6 +191,50 @@
 
 	.terminal-window {
 		@apply bg-terminal-window border border-terminal-window-border rounded-md mb-8;
+	}
+
+	/* Style for inline code */
+	article :not(pre) > code {
+		@apply bg-terminal-window-border/80 text-terminal-text px-0.5 rounded font-mono;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	/* Style for code blocks */
+	article pre {
+		@apply bg-terminal-window border border-terminal-window-border rounded-md p-4 mb-6 overflow-x-auto;
+		max-width: 100%;
+	}
+
+	article pre code {
+		@apply p-0 border-none rounded-none text-sm font-mono; /* Reset inline styles */
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	/* Style for tables */
+	article table {
+		@apply w-full mb-6 border-collapse border border-terminal-window-border bg-terminal-bg/80;
+		display: block;
+		overflow-x: auto;
+		max-width: 100%;
+	}
+
+	article th,
+	article td {
+		@apply border border-terminal-window-border px-4 py-2 text-left;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		max-width: 100%;
+	}
+
+	article th {
+		@apply bg-terminal-window text-terminal-text font-semibold;
+	}
+
+	article tbody tr:hover {
+		@apply bg-terminal-window-border/30;
 	}
 }
 

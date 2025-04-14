@@ -7,7 +7,14 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules/", "dist/", ".next/", "tsconfig.json"]
+		"ignore": [
+			"node_modules/",
+			"dist/",
+			".next/",
+			"tsconfig.json",
+			"public/files/",
+			".contentlayer/"
+		]
 	},
 	"formatter": {
 		"enabled": true,
