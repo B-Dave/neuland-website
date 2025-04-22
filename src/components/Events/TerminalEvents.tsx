@@ -11,20 +11,33 @@ import { CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
 import React, { useState, useCallback, useRef, useEffect } from 'react'
 import CalendarModal from './CalendarModal'
 
-const TerminalEvents: React.FC = () => {
+interface TerminalEventsProps {
+	initialData?: Awaited<ReturnType<typeof fetchEvents>>
+	error?: string | null
+}
+
+const TerminalEvents: React.FC<TerminalEventsProps> = ({
+	initialData,
+	error: serverError
+}) => {
 	const {
 		data: eventsData,
 		isFetching,
 		isError,
-		error
+		error: clientError
 	} = useQuery({
 		queryKey: ['eventsData'],
 		queryFn: fetchEvents,
 		retry: 2,
 		refetchOnWindowFocus: false,
 		staleTime: 5 * 60 * 1000,
-		initialData: { semester: `SS ${new Date().getFullYear()}`, events: [] }
+		initialData: initialData || {
+			semester: `SS ${new Date().getFullYear()}`,
+			events: []
+		}
 	})
+
+	const error = serverError || clientError
 
 	const [selectedEventIndex, setSelectedEventIndex] = useState<number | null>(
 		null
@@ -91,7 +104,9 @@ const TerminalEvents: React.FC = () => {
 									<p className="text-sm text-terminal-lightGreen/60">
 										{error instanceof Error
 											? error.message
-											: 'Unbekannter Fehler'}
+											: typeof error === 'string'
+												? error
+												: 'Unbekannter Fehler'}
 									</p>
 									<p className="text-sm mt-4 text-terminal-text/70">
 										Unsere Serverwartungsmannschaft macht gerade wohl
@@ -100,7 +115,8 @@ const TerminalEvents: React.FC = () => {
 										Bitte versuche es später noch einmal!
 									</p>
 								</div>
-							) : isFetching ? (
+							) : isFetching &&
+								(!eventsData?.events || eventsData.events.length === 0) ? (
 								<div className="p-4 max-w-lg">
 									<p className="text-terminal-text/80 animate-pulse">
 										Veranstaltungen werden geladen...

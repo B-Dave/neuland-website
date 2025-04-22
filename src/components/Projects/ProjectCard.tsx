@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 				className="h-full rounded-xl bg-terminal-window border-terminal-window-border cursor-pointer group relative overflow-hidden flex flex-col"
 				onClick={onClick}
 			>
-				<CardHeader className="bg-terminal-windowTitle/50 pb-1">
+				<CardHeader className="bg-terminal-windowTitle/50 p-4 pl-6">
 					<CardTitle className="text-md font-bold flex items-center gap-2 text-terminal-cyan">
 						<Code size={18} className="text-terminal-text mr-1" />
 						{project.title}

@@ -98,7 +98,7 @@
 			},
 			{
 				"label": "GitHub",
-				"url": "htttps://github.com/neuland-ingolstadt/neuland.app-backend"
+				"url": "https://github.com/neuland-ingolstadt/neuland.app-backend"
 			}
 		],
 		"tags": ["API", "GraphQL"],

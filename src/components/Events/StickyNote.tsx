@@ -24,9 +24,9 @@ const StickyNote: React.FC<StickyNoteProps> = ({
 		>
 			<div className="absolute -bottom-4 -right-4 w-12 h-12 bg-white/30 shadow-inner transform rotate-45" />
 
-			<div className="relative p-3 text-center text-black leading-tight font-semibold text-md mt-1.5 font-fantasy">
+			<div className="relative p-3 text-center text-black leading-tight font-semibold  mt-1.5 font-fantasy">
 				{message}
-				<span className="block text-red-600 text-md font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100 mt-1">
+				<span className="block text-red-600 text-md font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100 mt-1 text-sm">
 					{importantText}
 				</span>
 			</div>

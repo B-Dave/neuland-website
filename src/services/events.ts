@@ -148,19 +148,33 @@ function getDateStr(startDate: moment.Moment, event: NeulandEventResponse) {
 
 	return dateStr
 }
+
 const API_URL =
 	process.env.NEXT_PUBLIC_API_URL ?? 'https://api.dev.neuland.app/graphql'
+
+// Cache for server-side rendering
+let cachedEvents: { semester: string; events: Event[] } | null = null
+let cacheTimestamp = 0
+const CACHE_TTL = 300000 // 5 minutes in milliseconds
 
 export const fetchEvents = async (): Promise<{
 	semester: string
 	events: Event[]
 }> => {
+	// Use cache if it exists and is not expired
+	const now = Date.now()
+	if (cachedEvents && now - cacheTimestamp < CACHE_TTL) {
+		return cachedEvents
+	}
+
 	try {
 		const response = await fetch(API_URL, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
+			cache: 'no-store',
+			next: { revalidate: 300 }, // Revalidate every 5 minutes
 			body: JSON.stringify({
 				query: `
 					query NeulandEvents {
@@ -275,7 +289,7 @@ export const fetchEvents = async (): Promise<{
 						.toString()
 						.slice(2)}`
 
-		return {
+		const result = {
 			semester,
 			events: events.sort((a: Event, b: Event) => {
 				const dateAValid = a.nextOccurrence !== ''
@@ -300,6 +314,11 @@ export const fetchEvents = async (): Promise<{
 				return 0
 			})
 		}
+
+		cachedEvents = result
+		cacheTimestamp = now
+
+		return result
 	} catch (error) {
 		console.error('Error fetching events:', error)
 		throw error
