@@ -1,8 +1,12 @@
 import moment from 'moment'
 import { Frequency, type Weekday, rrulestr } from 'rrule'
 import 'moment/locale/de'
+import 'moment-timezone'
 import type { Language } from 'rrule/dist/esm/nlp/i18n'
 import type { GetText } from 'rrule/dist/esm/nlp/totext'
+
+// Set default timezone to Europe/Berlin for all moment instances
+moment.tz.setDefault('Europe/Berlin')
 
 interface NeulandEventResponse {
 	id: string
@@ -134,12 +138,13 @@ function getDateStr(startDate: moment.Moment, event: NeulandEventResponse) {
 		return 'tbd'
 	}
 
-	const formattedStart = startDate.format('DD.MM.YYYY, HH:mm')
+	const localStartDate = startDate.tz('Europe/Berlin')
+	const formattedStart = localStartDate.format('DD.MM.YYYY, HH:mm')
 
 	let dateStr = formattedStart
 	if (event.endTime) {
-		const endDate = moment(event.endTime)
-		if (startDate.isSame(endDate, 'day')) {
+		const endDate = moment(event.endTime).tz('Europe/Berlin')
+		if (localStartDate.isSame(endDate, 'day')) {
 			dateStr += ` - ${endDate.format('HH:mm')}`
 		} else {
 			dateStr += ` - ${endDate.format('DD.MM.YYYY, HH:mm')}`
@@ -215,7 +220,8 @@ export const fetchEvents = async (): Promise<{
 			(event: NeulandEventResponse): Event => {
 				moment.locale('de')
 
-				const startDate = moment(event.startTime)
+				// Make sure to use timezone when parsing dates
+				const startDate = moment(event.startTime).tz('Europe/Berlin')
 				let dateStr = getDateStr(startDate, event)
 				let nextOccurrence = startDate
 
@@ -251,13 +257,18 @@ export const fetchEvents = async (): Promise<{
 						}
 
 						if (!rruleText.includes('at ') && rule.options.dtstart) {
-							const time = moment(rule.options.dtstart).format('HH:mm')
+							const time = moment(rule.options.dtstart)
+								.tz('Europe/Berlin')
+								.format('HH:mm')
 							rruleText += ` um ${time} Uhr`
 						}
 
-						nextOccurrence = moment(rule.after(new Date(), true))
+						const nextDate = rule.after(new Date(), true)
+						nextOccurrence = nextDate
+							? moment(nextDate).tz('Europe/Berlin')
+							: startDate
 						if (nextOccurrence) {
-							dateStr = getDateStr(moment(nextOccurrence), event)
+							dateStr = getDateStr(nextOccurrence, event)
 						}
 					} catch (error) {
 						console.error('Error parsing rrule:', error)
