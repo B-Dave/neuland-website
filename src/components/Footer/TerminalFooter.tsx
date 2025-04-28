@@ -1,3 +1,4 @@
+'use client'
 import SettingsLinks from '@/components/Footer/SettingsLinks'
 import SocialLinks from '@/components/Footer/SocialLinks'
 import TerminalLinks from '@/components/Footer/TerminalLinks'
@@ -5,6 +6,11 @@ import type React from 'react'
 
 const TerminalFooter: React.FC = () => {
 	const currentYear = new Date().getFullYear()
+	const fullCommitHash = process.env.NEXT_PUBLIC_COMMIT_HASH || 'development'
+	const commitHash =
+		typeof fullCommitHash === 'string' && fullCommitHash !== 'development'
+			? fullCommitHash.substring(0, 7) // Display only the first 7 characters of the hash
+			: fullCommitHash
 
 	return (
 		<div>
@@ -15,6 +21,9 @@ const TerminalFooter: React.FC = () => {
 			</div>
 			<div className="text-center text-terminal-text/50 text-sm pt-2 pb-8">
 				© {currentYear} Neuland Ingolstadt e.V.
+				<div className="text-xs text-terminal-text/30 mt-1 font-mono">
+					Build: <span title="Git commit hash">{commitHash}</span>
+				</div>
 			</div>
 		</div>
 	)

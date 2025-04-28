@@ -78,3 +78,4 @@ jobs:
           build-args: |
             NEXT_PUBLIC_APTABASE_KEY=${{ vars.NEXT_PUBLIC_APTABASE_KEY }}
             NEXT_PUBLIC_API_URL=${{vars.NEXT_PUBLIC_API_URL}}
+            COMMIT_HASH=${{ github.sha }}
