@@ -41,5 +41,5 @@ The site will be available at http://localhost:3000
 npm run lint
 
 # Format code
-npm run format
+npm run fmt
 ```

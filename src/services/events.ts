@@ -302,28 +302,34 @@ export const fetchEvents = async (): Promise<{
 
 		const result = {
 			semester,
-			events: events.sort((a: Event, b: Event) => {
-				const dateAValid = a.nextOccurrence !== ''
-				const dateBValid = b.nextOccurrence !== ''
+			events: events
+				.filter((event: Event) => {
+					if (!event.nextOccurrence) return false
+					const nextDate = new Date(event.nextOccurrence)
+					return nextDate >= new Date()
+				})
+				.sort((a: Event, b: Event) => {
+					const dateAValid = a.nextOccurrence !== ''
+					const dateBValid = b.nextOccurrence !== ''
 
-				if (!dateAValid && !dateBValid) {
-					return a.title.localeCompare(b.title)
-				}
+					if (!dateAValid && !dateBValid) {
+						return a.title.localeCompare(b.title)
+					}
 
-				if (!dateAValid) return 1
-				if (!dateBValid) return -1
+					if (!dateAValid) return 1
+					if (!dateBValid) return -1
 
-				const dateA = new Date(a.nextOccurrence)
-				const dateB = new Date(b.nextOccurrence)
+					const dateA = new Date(a.nextOccurrence)
+					const dateB = new Date(b.nextOccurrence)
 
-				if (dateA < dateB) {
-					return -1
-				}
-				if (dateA > dateB) {
-					return 1
-				}
-				return 0
-			})
+					if (dateA < dateB) {
+						return -1
+					}
+					if (dateA > dateB) {
+						return 1
+					}
+					return 0
+				})
 		}
 
 		cachedEvents = result
