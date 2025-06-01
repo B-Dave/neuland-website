@@ -178,7 +178,6 @@ export const fetchEvents = async (): Promise<{
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			cache: 'no-store',
 			next: { revalidate: 300 }, // Revalidate every 5 minutes
 			body: JSON.stringify({
 				query: `

@@ -1,28 +1,74 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious
+} from '@/components/ui/carousel'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { memo, useMemo } from 'react'
 import FeaturedPostCard from './FeaturedPostCard'
 
-export default function BlogPreview() {
-	const posts = allPosts
-		.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-		.slice(0, 3)
+const BlogPreview = () => {
+	const posts = useMemo(
+		() =>
+			allPosts
+				.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+				.slice(0, 5),
+		[]
+	)
+
+	const carouselOptions = useMemo(
+		() => ({
+			align: 'start' as const,
+			loop: false
+		}),
+		[]
+	)
 
 	return (
-		<div className="w-full -mt-4">
-			<div className="flex justify-end items-center mb-6">
-				<Button variant="outline" asChild className="align-right">
-					<Link href="/blog" className="no-underline">
-						Alle Posts
-					</Link>
-				</Button>
-			</div>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-				{posts.map((post, idx) => (
-					<FeaturedPostCard post={post} key={idx} />
-				))}
+		<div className="relative">
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6 }}
+				viewport={{ once: true }}
+				className="mb-6"
+			>
+				<p className="text-sm opacity-80 mb-6 font-mono">
+					$ blog --list | grep featured
+				</p>
+			</motion.div>
+
+			<Carousel opts={carouselOptions} className="w-full">
+				<CarouselContent className="-ml-4">
+					{posts.map((post, idx) => (
+						<CarouselItem key={idx} className="pl-4 sm:basis-1/2 lg:basis-1/3">
+							<FeaturedPostCard post={post} />
+						</CarouselItem>
+					))}
+				</CarouselContent>
+				<CarouselPrevious className="left-0" />
+				<CarouselNext className="right-0" />
+			</Carousel>
+
+			<div className="mt-6 mb-8">
+				<div className="flex justify-end items-center">
+					<Button variant="outline" asChild>
+						<Link href="/blog" className="no-underline">
+							Alle Posts
+						</Link>
+					</Button>
+				</div>
 			</div>
 		</div>
 	)
 }
+
+export default memo(BlogPreview)
