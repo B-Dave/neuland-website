@@ -1,7 +1,7 @@
 ---
-title: "Neuland Next 0.13 now available"
+title: "🚀 Neuland Next 0.13: A Major Leap Forward for THI Students"
 authors: ["Robert Eggl"]
-date: 2025-06-09T11:00
+date: 2025-06-03T11:00
 description: "Neuland Next 0.13 is a major leap forward for THI students. It's packed with improvements that make student life at Technische Hochschule Ingolstadt even more seamless."
 
 tags:
@@ -9,8 +9,6 @@ tags:
 - THI
 - App
 ---
-
-# 🚀 Neuland Next 0.13: A Major Leap Forward for THI Students
 
 We’re excited to share one of our biggest updates yet - Neuland Next version 0.13 is here, and it's packed with improvements that make student life at Technische Hochschule Ingolstadt even more seamless.
 
@@ -47,8 +45,16 @@ Neuland Next is an **unofficial companion app** built to support students at THI
 
 Thank you to everyone who's contributed feedback and helped shape this release - you drive our work forward.
 
+Stay tuned for more updates and improvements in the future! 
+
 ## 🔄 Ready to Explore the New Neuland Next?
 
 Update the app now to experience all the latest features, or download it if you haven’t already. We can't wait to hear what you think!
 
 👉 [Learn more and download Neuland Next](https://next.neuland.app)
+
+## 🧑‍💻 Contribute to Neuland Next
+
+As an open-source project, Neuland Next is built by students, for students. We welcome contributions from anyone who wants to help make university life easier.
+
+If you're interested in contributing, check out our [GitHub repository](https://github.com/neuland-ingolstadt/neuland.app-native) or join our non profit organization [Neuland Ingolstadt](https://neuland-ingolstadt.de).
