@@ -5,17 +5,13 @@
 		"description": "Eine web-basierte und sichere und vor allem stabile Alternative zur THI-App.",
 		"links": [
 			{
-				"label": "Web",
-				"url": "https://neuland.app"
-			},
-			{
 				"label": "GitHub",
 				"url": "https://github.com/neuland-ingolstadt/neuland.app"
 			}
 		],
 		"tags": ["Next.js", "PWA", "Web"],
 		"longDescription": "Die ist eine progressive Web-App, die als Alternative zur offiziellen THI-App entwickelt wurde. In ihr liegt der Grunstein für Neuland Ingolstadt und die Neuland Next App.",
-		"additionalInfo": "Das Projekt wurde als Next.js-Anwendung umgesetzt und ist mittlerweile weitesgehends von unserer Neuland Next App abgelöst worden."
+		"additionalInfo": "Das Projekt wurde als Next.js-Anwendung umgesetzt und ist mittlerweile von unserer Neuland Next App abgelöst worden und wurde daher eingestellt."
 	},
 	{
 		"id": "neuland-next",
