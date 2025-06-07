@@ -51,7 +51,7 @@ Stay tuned for more updates and improvements in the future!
 
 Update the app now to experience all the latest features, or download it if you haven’t already. We can't wait to hear what you think!
 
-👉 [Learn more and download Neuland Next](https://next.neuland.app)
+👉 [Learn more and download Neuland Next](https://neuland.app)
 
 ## 🧑‍💻 Contribute to Neuland Next
 
