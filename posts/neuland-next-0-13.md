@@ -1,15 +1,14 @@
 ---
-title: "🚀 Neuland Next 0.13: A Major Leap Forward for THI Students"
+title: "Neuland Next 0.13: A Major Leap Forward for THI Students"
 authors: ["Robert Eggl"]
 date: 2025-06-03T11:00
 description: "Neuland Next 0.13 is a major leap forward for THI students. It's packed with improvements that make student life at Technische Hochschule Ingolstadt even more seamless."
 
 tags:
 - Neuland Next
-- THI
 - App
+- THI
 ---
-
 We’re excited to share one of our biggest updates yet - Neuland Next version 0.13 is here, and it's packed with improvements that make student life at Technische Hochschule Ingolstadt even more seamless.
 
 With over 400 files changed and nearly 27,000 lines of code modified, this redesign is our most ambitious release to date. The result? A faster, cleaner, and more intuitive experience that brings essential university services right to your fingertips.

@@ -100,7 +100,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 					)}
 				</div>
 				<div
-					className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose-img:max-w-full"
+					className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose-img:max-w-full [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml:
 					dangerouslySetInnerHTML={{ __html: post.body.html }}
 				/>
