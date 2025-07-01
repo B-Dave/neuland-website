@@ -10,7 +10,13 @@ export const Post = defineDocumentType(() => ({
 	filePathPattern: '**/*.md',
 	fields: {
 		title: { type: 'string', required: true },
-		authors: { type: 'list', of: { type: 'string' }, required: true },
+		authors: {
+			type: 'list',
+			of: {
+				type: 'json'
+			},
+			required: true
+		},
 		description: { type: 'string', required: false },
 		date: { type: 'date', required: true },
 		tags: {

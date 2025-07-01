@@ -1,6 +1,8 @@
 ---
 title: "Neuland Next Launches Official Web Version and New Landing Page"
-authors: ["Robert Eggl"]
+authors: 
+  - name: "Robert Eggl"
+    link: "https://eggl.dev"
 date: 2025-06-09
 description: "Neuland Next is now available in your browser, ideal for use on laptops during lectures."
 tags:

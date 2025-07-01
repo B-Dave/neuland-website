@@ -1,6 +1,8 @@
 ---
 title: "Neuland Next 0.13: A Major Leap Forward for THI Students"
-authors: ["Robert Eggl"]
+authors: 
+  - name: "Robert Eggl"
+    link: "https://eggl.dev"
 date: 2025-06-03T11:00
 description: "Neuland Next 0.13 is a major leap forward for THI students. It's packed with improvements that make student life at Technische Hochschule Ingolstadt even more seamless."
 

@@ -12,6 +12,11 @@ import { format, parseISO } from 'date-fns'
 import { ArrowLeft, TagIcon } from 'lucide-react'
 import Link from 'next/link'
 
+type Author = {
+	name: string
+	link?: string
+}
+
 export const generateStaticParams = async () =>
 	allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -70,7 +75,31 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 					<h1 className="text-3xl font-bold">{post.title}</h1>
 					{post.authors && post.authors.length > 0 && (
 						<div className="mt-2 text-sm text-terminal-text/80">
-							Von {post.authors.join(', ')}
+							Von{' '}
+							{post.authors.map((author, index) => {
+								// Support both string and object format for backward compatibility
+								const isString = typeof author === 'string'
+								const authorName = isString ? author : (author as Author).name
+								const authorLink = isString ? null : (author as Author).link
+
+								return (
+									<span key={index}>
+										{authorLink ? (
+											<Link
+												href={authorLink}
+												className="text-terminal-cyan hover:text-terminal-cyan/80 transition-colors no-underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{authorName}
+											</Link>
+										) : (
+											authorName
+										)}
+										{index < post.authors.length - 1 && ', '}
+									</span>
+								)
+							})}
 						</div>
 					)}
 

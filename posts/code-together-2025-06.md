@@ -1,6 +1,8 @@
 ---
 title: "code:together June 2025 – Building Community Through Code"
-authors: ["Robert Eggl"]
+authors: 
+  - name: "Robert Eggl"
+    link: "https://eggl.dev"
 date: 2025-06-15T18:00
 description: "An evening of collaboration, creativity, and community building at our monthly code:together event in June 2025."
 tags:
