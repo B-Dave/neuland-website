@@ -124,11 +124,14 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 								</div>
 							) : !eventsData?.events || eventsData.events.length === 0 ? (
 								<div className="p-4 text-terminal-lightGreen">
-									<p className="text-md mb-2">
-										Aktuell sind keine Veranstaltungen geplant.
+									<p className="text-md mb-3">
+										Danke für eure Teilnahme an den vielen Events in diesem
+										Semester! 🎉
 									</p>
-									<p className="text-sm mt-4 text-terminal-text/70">
-										Schau bald wieder vorbei für neue Events!
+									<p className="text-sm mb-3 text-terminal-text/80">
+										Aktuell sind keine weiteren Veranstaltungen geplant, aber
+										wir arbeiten bereits an spannenden neuen Events für das
+										kommende Semester.
 									</p>
 								</div>
 							) : (
