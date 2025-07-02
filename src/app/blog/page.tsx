@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/pagination'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import { TagIcon } from 'lucide-react'
+import { RssIcon, TagIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function Home({
@@ -136,18 +136,33 @@ export default async function Home({
 				<h1 className="text-3xl font-bold text-terminal-highlight font-mono">
 					Neuland Blog
 				</h1>
-				<Button variant="outline" asChild>
-					<Link
-						href="/blog/tags"
-						className="flex items-center gap-2 no-underline group"
-					>
-						<TagIcon
-							size={16}
-							className="transition-transform duration-300 group-hover:rotate-16"
-						/>
-						<span>Alle Tags</span>
-					</Link>
-				</Button>
+				<div className="flex gap-2">
+					<Button variant="outline" asChild>
+						<Link
+							href="/feed"
+							className="flex items-center gap-2 no-underline group"
+							rel="noopener noreferrer"
+						>
+							<RssIcon
+								size={16}
+								className="transition-transform duration-300 group-hover:scale-110"
+							/>
+							<span>RSS Feed</span>
+						</Link>
+					</Button>
+					<Button variant="outline" asChild>
+						<Link
+							href="/blog/tags"
+							className="flex items-center gap-2 no-underline group"
+						>
+							<TagIcon
+								size={16}
+								className="transition-transform duration-300 group-hover:rotate-16"
+							/>
+							<span>Alle Tags</span>
+						</Link>
+					</Button>
+				</div>
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">

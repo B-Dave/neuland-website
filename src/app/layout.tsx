@@ -29,7 +29,14 @@ const shantellSans = Shantell_Sans({
 export const metadata: Metadata = {
 	title: 'Neuland Ingolstadt e.V.',
 	description:
-		'Der Informatik-Verein deines Vertrauens. Von Studierenden für Studierende und alle, die sich für Informatik begeistern können.'
+		'Der Informatik-Verein deines Vertrauens. Von Studierenden für Studierende und alle, die sich für Informatik begeistern können.',
+	alternates: {
+		types: {
+			'application/rss+xml': [
+				{ url: '/feed', title: 'Neuland Ingolstadt Blog RSS Feed' }
+			]
+		}
+	}
 }
 
 export default function RootLayout({

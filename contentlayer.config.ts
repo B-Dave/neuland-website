@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm'
 export const Post = defineDocumentType(() => ({
 	name: 'Post',
 	filePathPattern: '**/*.md',
+	contentType: 'markdown',
 	fields: {
 		title: { type: 'string', required: true },
 		authors: {
