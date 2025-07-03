@@ -9,7 +9,6 @@ tags:
   - code:together
   - Community
   - Neuland Next
-  - Collaboration
 ---
 
 Our June code:together event was a great success! It was really nice to see so many people come together to work on projects, share ideas, and connect with fellow students and tech enthusiasts.
