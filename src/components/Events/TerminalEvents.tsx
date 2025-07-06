@@ -125,13 +125,15 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 							) : !eventsData?.events || eventsData.events.length === 0 ? (
 								<div className="p-4 text-terminal-lightGreen">
 									<p className="text-md mb-3">
-										Danke für eure Teilnahme an den vielen Events in diesem
+										Danke für eure Teilnahme an den über 20 Events in diesem
 										Semester! 🎉
 									</p>
 									<p className="text-sm mb-3 text-terminal-text/80">
-										Aktuell sind keine weiteren Veranstaltungen geplant, aber
-										wir arbeiten bereits an spannenden neuen Events für das
+										Wir arbeiten bereits an spannenden neuen Events für das
 										kommende Semester.
+										<br />
+										<span className="text-terminal-highlight">$</span>{' '}
+										./prepare_ctf.sh --season WS25/26 --hype-level=MAXIMUM
 									</p>
 								</div>
 							) : (
