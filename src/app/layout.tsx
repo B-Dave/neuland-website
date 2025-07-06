@@ -39,6 +39,38 @@ export const metadata: Metadata = {
 	}
 }
 
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'NGO',
+	'@id': 'https://neuland-ingolstadt.de/',
+	name: 'Neuland Ingolstadt e.V.',
+	url: 'https://neuland-ingolstadt.de/',
+	description:
+		'Der studentische Verein für alle informatikbegeisterten Studierenden der TH Ingolstadt. Wir bieten einen Raum für Kreativität, Technologie, Bildung und Gemeinschaft.',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: 'Esplanade 10',
+		addressLocality: 'Ingolstadt',
+		postalCode: '85049',
+		addressCountry: 'DE'
+	},
+	contactPoint: {
+		'@type': 'ContactPoint',
+		email: 'info@neuland-ingolstadt.de',
+		contactType: 'Customer Service',
+		availableLanguage: ['German', 'English']
+	},
+	sameAs: [
+		'https://instagram.com/neuland_ingolstadt',
+		'https://facebook.com/neulandingolstadt',
+		'https://github.com/neuland-ingolstadt',
+		'https://linkedin.com/company/neuland-ingolstadt',
+		'https://thi.de/studium/studentisches-leben/studentische-vereine-an-der-thi/neuland-ingolstadt-e-v/',
+		'https://neuland.app'
+	],
+	foundingDate: '2021'
+}
+
 export default function RootLayout({
 	children
 }: Readonly<{
@@ -49,6 +81,13 @@ export default function RootLayout({
 			<head>
 				<meta name="theme-color" content="#000000" />
 			</head>
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: ok
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+				}}
+			/>
 			<body
 				className={`${overpassMono.variable} ${notoSans.variable} ${shantellSans.variable} font-mono antialiased`}
 			>
