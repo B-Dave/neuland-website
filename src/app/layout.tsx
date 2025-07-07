@@ -80,6 +80,7 @@ export default function RootLayout({
 		<html lang="de" className="dark" suppressHydrationWarning>
 			<head>
 				<meta name="theme-color" content="#000000" />
+				<link rel="me" href="https://social.tchncs.de/@neuland" />
 				<script
 					type="application/ld+json"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: ok
