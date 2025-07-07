@@ -1,15 +1,10 @@
 'use client'
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious
-} from '@/components/ui/carousel'
 import projectsData from '@/data/projects.json'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import type React from 'react'
 import { memo, useCallback, useMemo, useState } from 'react'
+import TerminalButton from '../TerminalButton'
 import ProjectCard, { type ProjectDetails } from './ProjectCard'
 import ProjectDetailModal from './ProjectDetailModal'
 
@@ -19,7 +14,7 @@ const ProjectsShowcase: React.FC = () => {
 	)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
-	const memoizedProjects = useMemo(() => projectsData, [])
+	const memoizedProjects = useMemo(() => projectsData.slice(0, 3), [])
 
 	const openProjectDetails = useCallback((project: ProjectDetails) => {
 		setSelectedProject(project)
@@ -31,50 +26,37 @@ const ProjectsShowcase: React.FC = () => {
 		setTimeout(() => setSelectedProject(null), 300)
 	}, [])
 
-	const carouselOptions = useMemo(
-		() => ({
-			align: 'start' as const,
-			loop: true
-		}),
-		[]
-	)
-
 	return (
 		<div className="relative">
-			{}
+			{/* Terminal command header */}
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6 }}
 				viewport={{ once: true }}
-				className="mb-6"
+				className="mb-8"
 			>
-				<p className="text-sm opacity-80 mb-6 font-mono">
+				<p className="text-sm opacity-80 mb-4 font-mono">
 					$ projects --list | grep featured
 				</p>
 			</motion.div>
 
-			{}
-			<Carousel opts={carouselOptions} className="w-full">
-				<CarouselContent className="-ml-4">
-					{memoizedProjects.map((project) => (
-						<CarouselItem
-							key={project.id}
-							className="pl-4 sm:basis-1/2 lg:basis-1/3"
-						>
-							<ProjectCard
-								project={project}
-								onClick={() => openProjectDetails(project)}
-							/>
-						</CarouselItem>
-					))}
-				</CarouselContent>
-				<CarouselPrevious className="left-0" />
-				<CarouselNext className="right-0" />
-			</Carousel>
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+				{memoizedProjects.map((project) => (
+					<ProjectCard
+						key={project.id}
+						project={project}
+						onClick={() => openProjectDetails(project)}
+					/>
+				))}
+			</div>
 
-			{}
-			<div className="mt-6 mb-8">
+			<TerminalButton href="/projects">
+				<ArrowRight size={16} className="mr-2" />
+				Alle Projekte anzeigen
+			</TerminalButton>
+
+			<div className="mt-2 mb-8">
 				<div className="font-mono text-sm opacity-80">
 					<span className="text-terminal-cyan">$</span> curl{' '}
 					<a
@@ -88,7 +70,7 @@ const ProjectsShowcase: React.FC = () => {
 				</div>
 			</div>
 
-			{}
+			{/* Project detail modal */}
 			<ProjectDetailModal
 				project={selectedProject}
 				isOpen={isModalOpen}

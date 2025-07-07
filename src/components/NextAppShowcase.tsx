@@ -1,5 +1,5 @@
 'use client'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, type Variants, motion } from 'framer-motion'
 import { ArrowUpRight, Calendar, ForkKnife, MapPin } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import FeatureItem from './FeatureItem'
@@ -89,7 +89,7 @@ const NextAppShowcase = () => {
 									src={screenshots[activeIndex]}
 									alt={`Neuland Next App Screenshot ${activeIndex + 1}`}
 									className="absolute inset-0 h-full w-full object-cover"
-									variants={imageVariants}
+									variants={imageVariants as Variants}
 									initial="initial"
 									animate="animate"
 									exit="exit"

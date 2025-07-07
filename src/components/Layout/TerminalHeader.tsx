@@ -94,6 +94,14 @@ const TerminalHeader: React.FC = () => {
 						</li>
 						<li>
 							<Link
+								href="/projects"
+								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text"
+							>
+								Projekte
+							</Link>
+						</li>
+						<li>
+							<Link
 								href="/blog"
 								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text"
 							>

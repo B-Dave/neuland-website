@@ -37,77 +37,70 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 	}, [])
 
 	return (
-		<motion.div
-			whileHover={{ scale: 1.03 }}
-			transition={{ type: 'spring', stiffness: 300 }}
-			className="h-full p-2"
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, scale: 0.95 }}
-			style={{ transformOrigin: 'center' }}
+		<Card
+			className="h-full rounded-xl border-terminal-window-border cursor-pointer group relative overflow-hidden flex flex-col"
+			onClick={onClick}
+			style={{
+				background: 'rgba(17, 17, 17, 0.7)',
+				backdropFilter: 'blur(8px)',
+				WebkitBackdropFilter: 'blur(8px)'
+			}}
 		>
-			<Card
-				className="h-full rounded-xl bg-terminal-window border-terminal-window-border cursor-pointer group relative overflow-hidden flex flex-col"
-				onClick={onClick}
-			>
-				<CardHeader className="bg-terminal-windowTitle/50 p-4 pl-6">
-					<CardTitle className="text-md font-bold flex items-center gap-2 text-terminal-cyan">
-						<Code size={18} className="text-terminal-text mr-1" />
-						{project.title}
-					</CardTitle>
-				</CardHeader>
-				<CardContent className="pt-4 pb-3 grow overflow-auto">
-					<p className="text-sm mb-3 text-terminal-text">
-						{project.description}
-					</p>
+			<CardHeader className="bg-terminal-windowTitle/50 p-4 pl-6">
+				<CardTitle className="text-md font-bold flex items-center gap-2 text-terminal-cyan">
+					<Code size={18} className="text-terminal-text mr-1" />
+					{project.title}
+				</CardTitle>
+			</CardHeader>
+			<CardContent className="pt-4 pb-3 grow overflow-auto">
+				<p className="text-sm mb-3 text-terminal-text">{project.description}</p>
 
-					{project.tags && project.tags.length > 0 && (
-						<div className="flex flex-wrap gap-1 mb-3 mt-1">
-							{project.tags.map((tag, index) => (
-								<span
-									key={index}
-									className="text-xs px-2 py-1 rounded-sm bg-terminal-text/20 text-terminal-text"
-								>
-									{tag}
-								</span>
-							))}
-						</div>
-					)}
-				</CardContent>
-				<CardFooter className="text-xs flex items-center justify-between">
-					<div className="flex gap-2">
-						{project.links.slice(0, 3).map((link) => (
-							<a
-								key={link.label}
-								href={link.url}
-								target="_blank"
-								rel="noreferrer noopener"
-								className="text-terminal-cyan flex items-center hover:text-terminal-highlight transition-colors"
-								onClick={handleLinkClick}
+				{project.tags && project.tags.length > 0 && (
+					<div className="flex flex-wrap gap-1 mb-3 mt-1">
+						{project.tags.map((tag, index) => (
+							<span
+								key={index}
+								className="text-xs px-2 py-1 rounded-sm bg-terminal-text/20 text-terminal-text"
 							>
-								<ExternalLink size={12} className="mr-1" />
-								{link.label}
-							</a>
+								{tag}
+							</span>
 						))}
 					</div>
-					<motion.div
-						className="text-terminal-cyan flex items-center"
-						initial={{ x: 0 }}
-						whileHover={{ x: 3 }}
-					>
-						Details{' '}
-						<ChevronRight
-							size={14}
-							className="ml-1 group-hover:translate-x-1 transition-transform"
-						/>
-					</motion.div>
-				</CardFooter>
-
-				<div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 rounded-xl">
-					<div className="absolute inset-0 border border-terminal-cyan shadow-[0_0_10px_rgba(51,195,240,0.3)] rounded-xl" />
+				)}
+			</CardContent>
+			<CardFooter className="text-xs flex items-center justify-between">
+				<div className="flex gap-2">
+					{project.links.slice(0, 3).map((link) => (
+						<a
+							key={link.label}
+							href={link.url}
+							target="_blank"
+							rel="noreferrer noopener"
+							className="text-terminal-cyan flex items-center hover:text-terminal-highlight transition-colors"
+							onClick={handleLinkClick}
+						>
+							<ExternalLink size={12} className="mr-1" />
+							{link.label}
+						</a>
+					))}
 				</div>
-			</Card>
-		</motion.div>
+				<motion.div
+					className="text-terminal-cyan flex items-center"
+					initial={{ x: 0 }}
+					whileHover={{ x: 3 }}
+				>
+					Details{' '}
+					<ChevronRight
+						size={14}
+						className="ml-1 group-hover:translate-x-1 transition-transform"
+					/>
+				</motion.div>
+			</CardFooter>
+
+			<div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 rounded-xl">
+				<div className="absolute inset-0 border border-terminal-cyan shadow-[0_0_10px_rgba(51,195,240,0.3)] rounded-xl" />
+			</div>
+		</Card>
 	)
 }
 

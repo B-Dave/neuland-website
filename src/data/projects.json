@@ -1,19 +1,5 @@
 [
 	{
-		"id": "neuland-app",
-		"title": "neuland.app",
-		"description": "Eine web-basierte und sichere und vor allem stabile Alternative zur THI-App.",
-		"links": [
-			{
-				"label": "GitHub",
-				"url": "https://github.com/neuland-ingolstadt/neuland.app"
-			}
-		],
-		"tags": ["Next.js", "PWA", "Web"],
-		"longDescription": "Die ist eine progressive Web-App, die als Alternative zur offiziellen THI-App entwickelt wurde. In ihr liegt der Grunstein für Neuland Ingolstadt und die Neuland Next App.",
-		"additionalInfo": "Das Projekt wurde als Next.js-Anwendung umgesetzt und ist mittlerweile von unserer Neuland Next App abgelöst worden und wurde daher eingestellt."
-	},
-	{
 		"id": "neuland-next",
 		"title": "Neuland Next",
 		"description": "Unsere inoffizielle Campus-App für die THI, als Nachtfolger der neuland.app.",
@@ -31,6 +17,43 @@
 		"longDescription": "Neuland Next bietet als inoffizielle Campus-App für die THI eine moderne und benutzerfreundliche Oberfläche für Studierende, um den Studienalltag zu erleichtern.",
 		"imageUrl": "/assets/neuland-next/next_1.webp",
 		"additionalInfo": "Die App wurde mit React Native und Expo entwickelt und ist sowohl im App Store als auch im Play Store verfügbar."
+	},
+	{
+		"id": "ctf-team",
+		"title": "CTF-Team",
+		"description": "Vereins-Team, welches an verschiedenen Capture-the-Flag-Wettbewerben teilnimmt.",
+		"links": [
+			{
+				"label": "CTFtime",
+				"url": "https://ctftime.org/team/150968"
+			},
+			{
+				"label": "Neuland CTF",
+				"url": "https://ctf.neuland-ingolstadt.de"
+			}
+		],
+		"tags": ["Cybersecurity"],
+		"longDescription": "Unser CTF-Team nimmt regelmäßig an Capture-the-Flag-Wettbewerben teil, bei denen es darum geht, IT-Sicherheitsprobleme zu lösen und \"Flaggen\" zu erobern.",
+		"additionalInfo": "Diese Wettbewerbe sind eine hervorragende Möglichkeit, praktische Erfahrungen im Bereich der IT-Sicherheit zu sammeln und die eigenen Fähigkeiten weiterzuentwickeln."
+	},
+	{
+		"id": "digital-member-id",
+		"title": "Digital Member ID",
+		"description": "Ein modernes, vollständiges Mitgliederidentifikationssystem mit QR-Code-Generierung, Verifikation und Apple Wallet-Integration.",
+		"links": [
+			{
+				"label": "Demo",
+				"url": "https://id.informatik.sexy"
+			},
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/member-id"
+			}
+		],
+		"tags": ["Rust", "Next.js", "TypeScript"],
+		"longDescription": "Ein umfassendes digitales Identitätssystem, das moderne Webtechnologien mit kryptographischer Sicherheit kombiniert. Es bietet sichere QR-Generierung, Echtzeit-Verifikation, Apple Wallet-Integration und ein Dashboard zur Verfolgung von Scan-Historie und Statistiken.",
+		"imageUrl": "/assets/member-id.webp",
+		"additionalInfo": "Das System wurde mit Rust für die Backend-Logik und Next.js für das Frontend entwickelt, mit besonderem Fokus auf Sicherheit und Benutzerfreundlichkeit."
 	},
 	{
 		"id": "ersti-hilfe",
@@ -52,24 +75,6 @@
 		"additionalInfo": "Das Projekt wurde mit Next.js umgesetzt, mit einem Fokus auf Benutzerfreundlichkeit und ansprechendes Design."
 	},
 	{
-		"id": "ctf-team",
-		"title": "CTF-Team",
-		"description": "Vereins-Team, welches an verschiedenen Capture-the-Flag-Wettbewerben teilnimmt.",
-		"links": [
-			{
-				"label": "CTFtime",
-				"url": "https://ctftime.org/team/150968"
-			},
-			{
-				"label": "Neuland CTF",
-				"url": "https://ctf.neuland-ingolstadt.de"
-			}
-		],
-		"tags": ["Cybersecurity", "Hacking"],
-		"longDescription": "Unser CTF-Team nimmt regelmäßig an Capture-the-Flag-Wettbewerben teil, bei denen es darum geht, IT-Sicherheitsprobleme zu lösen und \"Flaggen\" zu erobern.",
-		"additionalInfo": "Diese Wettbewerbe sind eine hervorragende Möglichkeit, praktische Erfahrungen im Bereich der IT-Sicherheit zu sammeln und die eigenen Fähigkeiten weiterzuentwickeln."
-	},
-	{
 		"id": "it-studver",
 		"title": "IT für StudVer & Vereine",
 		"description": "IT-Infrastruktur für die Studierendenvertretung und studentische Vereine.",
@@ -79,9 +84,23 @@
 				"url": "mailto:info@neuland-ingolstadt.de"
 			}
 		],
-		"tags": ["Infrastruktur", "Server"],
+		"tags": ["Infrastruktur"],
 		"longDescription": "Wir stehen Vereinen und Organisationen an der THI mit Rat und Tat zur Seite, wenn es um die Einrichtung und Verwaltung von IT-Infrastruktur geht.",
 		"additionalInfo": "Wir bieten Unterstützung bei der Einrichtung von Servern, Webanwendungen und anderen IT-Diensten für Vereine und Organisationen an der THI."
+	},
+	{
+		"id": "neuland-app",
+		"title": "neuland.app",
+		"description": "Eine web-basierte und sichere und vor allem stabile Alternative zur THI-App.",
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/neuland.app"
+			}
+		],
+		"tags": ["Next.js", "PWA", "Web"],
+		"longDescription": "Die ist eine progressive Web-App, die als Alternative zur offiziellen THI-App entwickelt wurde. In ihr liegt der Grunstein für Neuland Ingolstadt und die Neuland Next App.",
+		"additionalInfo": "Das Projekt wurde als Next.js-Anwendung umgesetzt und ist mittlerweile von unserer Neuland Next App abgelöst worden und wurde daher eingestellt."
 	},
 	{
 		"id": "neuland-api",
@@ -100,5 +119,53 @@
 		"tags": ["API", "GraphQL"],
 		"longDescription": "Die Neuland API ist das Herzstück unserer THI-Projekte. Egal ob für Mensa, Campus Events oder Hochschulsport - sie ist die zentrale Anlaufstelle für alle Daten und Informationen, die unsere Anwendungen benötigen.",
 		"additionalInfo": "Die API ist in Node.js als GraphQL-Server implementiert und bietet eine flexible und leistungsstarke Schnittstelle für unsere Frontend-Anwendungen."
+	},
+
+	{
+		"id": "neuland-website",
+		"title": "Neuland Website",
+		"description": "Die Hauptlandingpage für den Neuland-Verein, entwickelt mit Next.js und Tailwind CSS.",
+		"links": [
+			{
+				"label": "Demo",
+				"url": "https://neuland-ingolstadt.de"
+			},
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/neuland-website"
+			}
+		],
+		"tags": ["Next.js", "TypeScript"],
+		"longDescription": "Die Website dient als Showcase für unsere Projekte und bietet Informationen über den Verein und seine Veranstaltungen. Sie nutzt einen Retro-Terminal-Stil, um unsere Werte effektiv zu präsentieren und versteckte Features zu integrieren, um die Attraktivität zu steigern.",
+		"imageUrl": "/assets/neuland-website.webp",
+		"additionalInfo": "Die Website wurde mit Next.js und Tailwind CSS entwickelt und bietet eine moderne, responsive Benutzeroberfläche mit Analytics-Integration."
+	},
+	{
+		"id": "neuland-ical",
+		"title": "iCal Subscription Service",
+		"description": "Ein Rust Microservice, welcher iCal-Feeds für die Neuland- und Campus-Veranstaltungen bereitstellt.",
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/neuland.app-ical-service"
+			}
+		],
+		"tags": ["Rust", "GraphQL"],
+		"longDescription": "Der iCal Subscription Service ist ein Rust Microservice, welcher iCal-Feeds für die Neuland- und Campus-Veranstaltungen generiert und bereitstellt.",
+		"additionalInfo": "Grundlage hierfür ist unsere GraphQL-API, welche sämtliche Veranstaltungen enthält. Diese wird dann in einen iCal-Feed umgewandelt und bereitgestellt. So kannst du unsere Veranstaltungen oder die der THI Vereine abonnieren und in deinen Kalender importieren."
+	},
+	{
+		"id": "neuland-student-verification",
+		"title": "Neuland Student Verification",
+		"description": "Ein E-Mail-basiertes Tool zur Verifizierung des Studentenstatus unserer Vereinsmitglieder.",
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/neuland-student-verification"
+			}
+		],
+		"tags": ["TypeScript", "Next.js", "Infrastruktur"],
+		"longDescription": "Das System authentifiziert Benutzer über E-Mail, verifiziert ihre Immatrikulation durch das Versenden einer weiteren E-Mail an ihre Studentenadresse und speichert das Ergebnis in einem easyVerein oder Webling Backend.",
+		"additionalInfo": "Das Tool unterstützt easyVerein und Webling als Backend-Systeme und kann einfach um weitere Mitgliederverwaltungssysteme erweitert werden. Die Implementierung nutzt JWT für die Datenübertragung ohne separate Datenbank."
 	}
 ]
