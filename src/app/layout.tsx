@@ -81,6 +81,7 @@ export default function RootLayout({
 			<head>
 				<meta name="theme-color" content="#000000" />
 				<link rel="me" href="https://social.tchncs.de/@neuland" />
+				<meta name="fediverse:creator" content="@neuland@social.tchncs.de" />
 				<script
 					type="application/ld+json"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: ok
