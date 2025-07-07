@@ -1,14 +1,33 @@
 'use client'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type React from 'react'
 
 const TerminalHeader: React.FC = () => {
 	const [scrolled, setScrolled] = useState(false)
+	const [isMenuOpen, setIsMenuOpen] = useState(false)
+	const headerRef = useRef<HTMLElement>(null)
 	const navigate = useRouter()
 	const isJune = new Date().getMonth() === 5
 	const pathname = usePathname()
+
+	// Dynamically set --navbar-height on the document root for robust layout
+	useEffect(() => {
+		const setNavbarHeight = () => {
+			if (headerRef.current) {
+				const height = headerRef.current.getBoundingClientRect().height
+				document.documentElement.style.setProperty(
+					'--navbar-height',
+					`${height}px`
+				)
+			}
+		}
+		setNavbarHeight()
+		window.addEventListener('resize', setNavbarHeight)
+		return () => window.removeEventListener('resize', setNavbarHeight)
+	}, [isMenuOpen])
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -50,9 +69,80 @@ const TerminalHeader: React.FC = () => {
 		}
 	}
 
+	const navLinks = [
+		{
+			name: 'Mitglied werden',
+			href: '#membership',
+			isPage: false,
+			onClick: scrollToMembership
+		},
+		{ name: 'Projekte', href: '/projects', isPage: true },
+		{ name: 'Blog', href: '/blog', isPage: true },
+		{
+			name: 'Login',
+			href: 'https://wiki.informatik.sexy/books/einfuhrung/page/willkommen',
+			isPage: false,
+			external: true
+		}
+	]
+
+	interface NavLinkProps {
+		link: {
+			name: string
+			href: string
+			isPage: boolean
+			onClick?: (e: React.MouseEvent) => void
+			external?: boolean
+		}
+		className: string
+		onClick?: () => void
+	}
+
+	const NavLink = ({ link, className, onClick }: NavLinkProps) => {
+		if (link.external) {
+			return (
+				<a
+					href={link.href}
+					target="_blank"
+					rel="noreferrer noopener"
+					className={`${className} relative group no-underline`}
+					onClick={onClick}
+				>
+					{link.name}
+					<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-terminal-cyan transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
+				</a>
+			)
+		}
+
+		if (link.isPage) {
+			return (
+				<Link
+					href={link.href}
+					className={`${className} relative group`}
+					onClick={onClick}
+				>
+					{link.name}
+					<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-terminal-cyan transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
+				</Link>
+			)
+		}
+
+		return (
+			<button
+				type="button"
+				onClick={link.onClick}
+				className={`${className} relative group text-left`}
+			>
+				{link.name}
+				<span className="absolute -bottom-1 left-0 w-full h-0.5 bg-terminal-cyan transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100" />
+			</button>
+		)
+	}
+
 	return (
-		<div
-			className={`terminal-nav fixed top-0 left-0 right-0 flex justify-between items-center py-4 border-b border-terminal-window-border z-50 transition-all duration-200 ${scrolled ? 'bg-terminal-bg/60 backdrop-blur-md' : 'bg-terminal-bg'}`}
+		<header
+			ref={headerRef}
+			className={`terminal-nav fixed top-0 left-0 right-0 z-50 transition-all duration-200 py-4 border-b border-terminal-window-border ${scrolled ? 'bg-terminal-bg/60 backdrop-blur-md' : 'bg-terminal-bg'}`}
 		>
 			<div className="container px-4 sm:px-6 mx-auto flex justify-between items-center">
 				<div className="terminal-logo flex flex-col items-start">
@@ -80,49 +170,50 @@ const TerminalHeader: React.FC = () => {
 						</div>
 					)}
 				</div>
-				<nav className="terminal-menu">
-					<ul className="flex gap-2 items-center">
-						<li className="hidden md:block">
-							<Link
-								type="button"
-								href="#membership"
-								onClick={scrollToMembership}
-								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text hover:text-terminal-cyan"
-							>
-								<span>Mitglied werden</span>
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/projects"
-								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text"
-							>
-								Projekte
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/blog"
-								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text"
-							>
-								Blog
-							</Link>
-						</li>
 
-						<li>
-							<a
-								href="https://wiki.informatik.sexy/books/einfuhrung/page/willkommen"
-								rel="noreferrer noopener"
-								target="_blank"
-								className="px-3 py-2 rounded transition-colors duration-300 text-terminal-text"
-							>
-								Login
-							</a>
-						</li>
-					</ul>
+				{/* Desktop Navigation */}
+				<nav className="hidden md:flex items-center gap-8">
+					{navLinks.map((link) => (
+						<NavLink
+							key={link.name}
+							link={link}
+							className="font-mono text-sm tracking-wider text-terminal-text hover:text-terminal-cyan transition-colors no-underline"
+							onClick={() => {}}
+						/>
+					))}
 				</nav>
+
+				{/* Mobile Menu Button */}
+				<div className="flex md:hidden items-center">
+					<button
+						onClick={() => setIsMenuOpen(!isMenuOpen)}
+						className="p-2 text-terminal-text hover:text-terminal-cyan transition-colors"
+						aria-label="Toggle menu"
+						type="button"
+					>
+						{isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+					</button>
+				</div>
 			</div>
-		</div>
+
+			{/* Mobile Navigation */}
+			{isMenuOpen && (
+				<div className="md:hidden backdrop-blur-md bg-terminal-bg/95 border-b border-terminal-window-border">
+					<div className="container px-4 sm:px-6 py-4">
+						<nav className="flex flex-col gap-4">
+							{navLinks.map((link) => (
+								<NavLink
+									key={link.name}
+									link={link}
+									className="font-mono text-lg py-2 text-terminal-text hover:text-terminal-cyan transition-colors"
+									onClick={() => setIsMenuOpen(false)}
+								/>
+							))}
+						</nav>
+					</div>
+				</div>
+			)}
+		</header>
 	)
 }
 
