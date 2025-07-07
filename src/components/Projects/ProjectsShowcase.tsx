@@ -50,13 +50,7 @@ const ProjectsShowcase: React.FC = () => {
 					/>
 				))}
 			</div>
-
-			<TerminalButton href="/projects">
-				<ArrowRight size={16} className="mr-2" />
-				Alle Projekte anzeigen
-			</TerminalButton>
-
-			<div className="mt-2 mb-8">
+			<div className="flex justify-between items-center w-full mb-8">
 				<div className="font-mono text-sm opacity-80">
 					<span className="text-terminal-cyan">$</span> curl{' '}
 					<a
@@ -68,6 +62,10 @@ const ProjectsShowcase: React.FC = () => {
 						github.com/neuland-ingolstadt
 					</a>
 				</div>
+				<TerminalButton href="/projects">
+					<ArrowRight size={16} className="mr-2" />
+					Alle Projekte anzeigen
+				</TerminalButton>
 			</div>
 
 			{/* Project detail modal */}

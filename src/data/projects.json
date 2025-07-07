@@ -13,7 +13,7 @@
 				"url": "https://github.com/neuland-ingolstadt/neuland.app-native"
 			}
 		],
-		"tags": ["React Native", "Expo", "Mobile"],
+		"tags": ["React Native", "TypeScript", "Mobile"],
 		"longDescription": "Neuland Next bietet als inoffizielle Campus-App für die THI eine moderne und benutzerfreundliche Oberfläche für Studierende, um den Studienalltag zu erleichtern.",
 		"imageUrl": "/assets/neuland-next/next_1.webp",
 		"additionalInfo": "Die App wurde mit React Native und Expo entwickelt und ist sowohl im App Store als auch im Play Store verfügbar."
@@ -43,7 +43,7 @@
 		"links": [
 			{
 				"label": "Demo",
-				"url": "https://id.informatik.sexy"
+				"url": "https://id.neuland-ingolstadt.de/learn-more"
 			},
 			{
 				"label": "GitHub",
@@ -52,7 +52,6 @@
 		],
 		"tags": ["Rust", "Next.js", "TypeScript"],
 		"longDescription": "Ein umfassendes digitales Identitätssystem, das moderne Webtechnologien mit kryptographischer Sicherheit kombiniert. Es bietet sichere QR-Generierung, Echtzeit-Verifikation, Apple Wallet-Integration und ein Dashboard zur Verfolgung von Scan-Historie und Statistiken.",
-		"imageUrl": "/assets/member-id.webp",
 		"additionalInfo": "Das System wurde mit Rust für die Backend-Logik und Next.js für das Frontend entwickelt, mit besonderem Fokus auf Sicherheit und Benutzerfreundlichkeit."
 	},
 	{
@@ -137,7 +136,6 @@
 		],
 		"tags": ["Next.js", "TypeScript"],
 		"longDescription": "Die Website dient als Showcase für unsere Projekte und bietet Informationen über den Verein und seine Veranstaltungen. Sie nutzt einen Retro-Terminal-Stil, um unsere Werte effektiv zu präsentieren und versteckte Features zu integrieren, um die Attraktivität zu steigern.",
-		"imageUrl": "/assets/neuland-website.webp",
 		"additionalInfo": "Die Website wurde mit Next.js und Tailwind CSS entwickelt und bietet eine moderne, responsive Benutzeroberfläche mit Analytics-Integration."
 	},
 	{

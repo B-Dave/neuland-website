@@ -80,14 +80,15 @@ export default function RootLayout({
 		<html lang="de" className="dark" suppressHydrationWarning>
 			<head>
 				<meta name="theme-color" content="#000000" />
+				<script
+					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: ok
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+					}}
+				/>
 			</head>
-			<script
-				type="application/ld+json"
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: ok
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify(jsonLd).replace(/</g, '\\u003c')
-				}}
-			/>
+
 			<body
 				className={`${overpassMono.variable} ${notoSans.variable} ${shantellSans.variable} font-mono antialiased`}
 			>

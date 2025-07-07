@@ -3,9 +3,10 @@ import ProjectCard, {
 	type ProjectDetails
 } from '@/components/Projects/ProjectCard'
 import ProjectDetailModal from '@/components/Projects/ProjectDetailModal'
+import TerminalButton from '@/components/TerminalButton'
 import projectsData from '@/data/projects.json'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Code, Filter, Github, Terminal } from 'lucide-react'
+import { ArrowUpRight, Code, Filter, Github, Terminal } from 'lucide-react'
 import { useMemo, useState } from 'react'
 
 const uniqueTags = (projectsData as ProjectDetails[]).reduce((acc, project) => {
@@ -165,18 +166,16 @@ const ProjectsPage = () => {
 					<div className="flex items-center justify-center gap-2 mb-4">
 						<Github size={20} className="text-terminal-cyan" />
 						<span className="text-terminal-text/80 font-mono">
-							Want to contribute?
+							Sieh dir unsere Projekte auf GitHub an!
 						</span>
 					</div>
-					<a
-						href="https://github.com/neuland-ingolstadt"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-terminal-cyan text-terminal-cyan hover:bg-terminal-cyan hover:text-black transition-all duration-200 font-mono"
-					>
-						<Github size={16} />
-						Join us on GitHub
-					</a>
+					<TerminalButton href="https://github.com/neuland-ingolstadt">
+						<ArrowUpRight
+							size={16}
+							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
+						/>
+						Mehr erfahren
+					</TerminalButton>
 				</div>
 			</motion.div>
 

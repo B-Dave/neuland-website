@@ -12,6 +12,7 @@ import type { Post } from 'contentlayer/generated'
 import { ChevronRight, FileText } from 'lucide-react'
 import moment from 'moment'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { memo } from 'react'
 
 type FeaturedPostCardProps = {
@@ -19,6 +20,8 @@ type FeaturedPostCardProps = {
 }
 
 const FeaturedPostCard = ({ post }: FeaturedPostCardProps) => {
+	const router = useRouter()
+
 	if (!post?.url || !post?.title) {
 		return null
 	}
@@ -50,10 +53,17 @@ const FeaturedPostCard = ({ post }: FeaturedPostCardProps) => {
 						{post.tags?.length > 0 && (
 							<div className="flex flex-wrap gap-1 mb-3 mt-1">
 								{post.tags.map((tag) => (
-									<Link
+									<button
 										key={tag}
-										href={`/blog/tags/${encodeURIComponent(tag.toLowerCase())}`}
-										className="no-underline"
+										type="button"
+										className="no-underline bg-transparent border-none p-0 m-0 cursor-pointer"
+										onClick={(e) => {
+											e.stopPropagation()
+											e.preventDefault()
+											router.push(
+												`/blog/tags/${encodeURIComponent(tag.toLowerCase())}`
+											)
+										}}
 									>
 										<Badge
 											variant="outline"
@@ -61,7 +71,7 @@ const FeaturedPostCard = ({ post }: FeaturedPostCardProps) => {
 										>
 											{tag}
 										</Badge>
-									</Link>
+									</button>
 								))}
 							</div>
 						)}
