@@ -1,3 +1,7 @@
+import { allPosts } from 'contentlayer/generated'
+import { format, parseISO } from 'date-fns'
+import { ArrowLeft, TagIcon } from 'lucide-react'
+import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import {
 	Breadcrumb,
@@ -7,10 +11,6 @@ import {
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
-import { allPosts } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
-import { ArrowLeft, TagIcon } from 'lucide-react'
-import Link from 'next/link'
 
 type Author = {
 	name: string
@@ -22,7 +22,9 @@ export const generateStaticParams = async () =>
 
 export const generateMetadata = async ({
 	params
-}: { params: { slug: string } }) => {
+}: {
+	params: { slug: string }
+}) => {
 	const { slug } = await params
 
 	const post = allPosts.find((post) => post._raw.flattenedPath === slug)
@@ -130,7 +132,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 				</div>
 				<div
 					className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose-img:max-w-full [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml:
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: no problem
 					dangerouslySetInnerHTML={{ __html: post.body.html }}
 				/>
 			</article>

@@ -1,12 +1,12 @@
 'use client'
-import { parseMarkdownSections } from '@/utils/markdownParser'
-import rehypeCustomLists from '@/utils/rehypeCustomLists'
 import type React from 'react'
 import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
 import remarkGfm from 'remark-gfm'
+import { parseMarkdownSections } from '@/utils/markdownParser'
+import rehypeCustomLists from '@/utils/rehypeCustomLists'
 import TerminalSection from '../Layout/TerminalSection'
 import type { TocItem } from '../types/TocTypes'
 import TocButton from './TocButton'
@@ -100,7 +100,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({
 	const renderContent = (content: string, docIndex: number) => (
 		<ReactMarkdown
 			remarkPlugins={[remarkGfm]}
-			// biome-ignore lint/suspicious/noExplicitAny:
+			// biome-ignore lint/suspicious/noExplicitAny: no problem
 			rehypePlugins={[rehypeStringify as any, rehypeFormat, rehypeCustomLists]}
 			components={{
 				h1: ({ children }) => {

@@ -1,6 +1,6 @@
 'use client'
-import TerminalSection from '@/components/Layout/TerminalSection'
 import type React from 'react'
+import TerminalSection from '@/components/Layout/TerminalSection'
 
 const AboutUsSection: React.FC = () => {
 	return (

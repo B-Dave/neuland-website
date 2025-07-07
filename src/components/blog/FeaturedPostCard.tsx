@@ -1,5 +1,11 @@
 'use client'
 
+import type { Post } from 'contentlayer/generated'
+import { ChevronRight, FileText } from 'lucide-react'
+import moment from 'moment'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { memo } from 'react'
 import { Badge } from '@/components/ui/badge'
 import {
 	Card,
@@ -8,12 +14,6 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card'
-import type { Post } from 'contentlayer/generated'
-import { ChevronRight, FileText } from 'lucide-react'
-import moment from 'moment'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { memo } from 'react'
 
 type FeaturedPostCardProps = {
 	post: Post

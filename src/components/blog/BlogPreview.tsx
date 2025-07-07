@@ -1,5 +1,10 @@
 'use client'
 
+import { allPosts } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { memo, useMemo } from 'react'
 import { Button } from '@/components/ui/button'
 import {
 	Carousel,
@@ -8,11 +13,6 @@ import {
 	CarouselNext,
 	CarouselPrevious
 } from '@/components/ui/carousel'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { memo, useMemo } from 'react'
 import FeaturedPostCard from './FeaturedPostCard'
 
 const BlogPreview = () => {

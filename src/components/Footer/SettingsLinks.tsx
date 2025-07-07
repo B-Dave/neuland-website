@@ -1,10 +1,10 @@
 'use client'
-import { Switch } from '@/components/ui/switch'
-import { useBackground } from '@/contexts/BackgroundContext'
 import { useAptabase } from '@aptabase/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Switch } from '@/components/ui/switch'
+import { useBackground } from '@/contexts/BackgroundContext'
 
 const MAX_TOGGLE_ATTEMPTS = 3
 
@@ -106,6 +106,7 @@ const SettingsLinks: React.FC = () => {
 							$ <span className="text-terminal-cyan">toggle</span> light mode
 						</span>
 						{toggleAttempts < MAX_TOGGLE_ATTEMPTS && (
+							// biome-ignore lint/a11y/noStaticElementInteractions: no problem
 							<div
 								ref={lightToggleRef}
 								onClick={handleLightToggleClick}

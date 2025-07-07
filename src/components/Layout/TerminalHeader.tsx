@@ -2,8 +2,8 @@
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
 import type React from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const TerminalHeader: React.FC = () => {
 	const [scrolled, setScrolled] = useState(false)
@@ -152,6 +152,7 @@ const TerminalHeader: React.FC = () => {
 						onClick={handleHomeClick}
 					>
 						<div className="logo">
+							{/** biome-ignore lint/performance/noImgElement: TODO */}
 							<img
 								src="/assets/logo_dark.svg"
 								alt="Neuland Ingolstadt e.V."

@@ -1,5 +1,5 @@
 'use client'
-import { AnimatePresence, type Variants, motion } from 'framer-motion'
+import { AnimatePresence, motion, type Variants } from 'framer-motion'
 import { ArrowUpRight, Calendar, ForkKnife, MapPin } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import FeatureItem from './FeatureItem'
@@ -84,6 +84,7 @@ const NextAppShowcase = () => {
 							style={{ willChange: 'transform' }}
 						>
 							<AnimatePresence mode="sync">
+								{/** biome-ignore lint/performance/noImgElement: TODO */}
 								<motion.img
 									key={activeIndex}
 									src={screenshots[activeIndex]}
@@ -169,6 +170,7 @@ const NextAppShowcase = () => {
 									target="_blank"
 									className="no-underline"
 								>
+									{/** biome-ignore lint/performance/noImgElement: TODO */}
 									<img
 										src="/assets/app_store_badge_de.svg"
 										alt="Apple App Store"
@@ -181,6 +183,7 @@ const NextAppShowcase = () => {
 									target="_blank"
 									className="no-underline"
 								>
+									{/** biome-ignore lint/performance/noImgElement: TODO */}
 									<img
 										src="/assets/play_store_badge_de.svg"
 										alt="Google Play Store"

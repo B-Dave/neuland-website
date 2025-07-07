@@ -41,6 +41,7 @@ const TocModal: React.FC<TocModalProps> = ({ sections, isOpen, onClose }) => {
 	)
 
 	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: no problem
 		<div
 			className="fixed inset-0 z-50 flex items-center justify-center bg-terminal-bg/60 backdrop-blur-sm"
 			onClick={onClose}

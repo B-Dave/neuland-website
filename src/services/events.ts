@@ -1,11 +1,10 @@
 import moment from 'moment'
-import { Frequency, type Weekday, rrulestr } from 'rrule'
+import { Frequency, rrulestr, type Weekday } from 'rrule'
 import 'moment/locale/de'
 import 'moment-timezone'
 import type { Language } from 'rrule/dist/esm/nlp/i18n'
 import type { GetText } from 'rrule/dist/esm/nlp/totext'
 
-// Set default timezone to Europe/Berlin for all moment instances
 moment.tz.setDefault('Europe/Berlin')
 
 interface NeulandEventResponse {
@@ -157,16 +156,14 @@ function getDateStr(startDate: moment.Moment, event: NeulandEventResponse) {
 const API_URL =
 	process.env.NEXT_PUBLIC_API_URL ?? 'https://api.dev.neuland.app/graphql'
 
-// Cache for server-side rendering
 let cachedEvents: { semester: string; events: Event[] } | null = null
 let cacheTimestamp = 0
-const CACHE_TTL = 300000 // 5 minutes in milliseconds
+const CACHE_TTL = 300000
 
 export const fetchEvents = async (): Promise<{
 	semester: string
 	events: Event[]
 }> => {
-	// Use cache if it exists and is not expired
 	const now = Date.now()
 	if (cachedEvents && now - cacheTimestamp < CACHE_TTL) {
 		return cachedEvents
@@ -178,7 +175,7 @@ export const fetchEvents = async (): Promise<{
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			next: { revalidate: 300 }, // Revalidate every 5 minutes
+			next: { revalidate: 300 },
 			body: JSON.stringify({
 				query: `
 					query NeulandEvents {
@@ -219,13 +216,12 @@ export const fetchEvents = async (): Promise<{
 			(event: NeulandEventResponse): Event => {
 				moment.locale('de')
 
-				// Make sure to use timezone when parsing dates
 				const startDate = moment(event.startTime).tz('Europe/Berlin')
 				let dateStr = getDateStr(startDate, event)
 				let nextOccurrence = startDate
 
-				let rruleText = undefined
-				let rruleTextShort = undefined
+				let rruleText: string | undefined
+				let rruleTextShort: string | undefined
 				if (event.rrule) {
 					try {
 						const rule = rrulestr(event.rrule)

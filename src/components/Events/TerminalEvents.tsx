@@ -1,14 +1,13 @@
 'use client'
+import { CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
+import React, { useCallback, useRef, useState } from 'react'
 import TerminalTypeWriter from '@/components/Events/TerminalTypeWriter'
 import TerminalWindow from '@/components/Events/TerminalWindow'
 import TerminalSection from '@/components/Layout/TerminalSection'
 import TerminalButton from '@/components/TerminalButton'
 import TerminalList from '@/components/TerminalList'
 import { cn } from '@/lib/utils'
-import { fetchEvents } from '@/services/events'
-import { useQuery } from '@tanstack/react-query'
-import { CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
-import React, { useState, useCallback, useRef, useEffect } from 'react'
+import type { fetchEvents } from '@/services/events'
 import CalendarModal from './CalendarModal'
 
 interface TerminalEventsProps {
@@ -20,24 +19,11 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 	initialData,
 	error: serverError
 }) => {
-	const {
-		data: eventsData,
-		isFetching,
-		isError,
-		error: clientError
-	} = useQuery({
-		queryKey: ['eventsData'],
-		queryFn: fetchEvents,
-		retry: 2,
-		refetchOnWindowFocus: false,
-		staleTime: 5 * 60 * 1000,
-		initialData: initialData || {
-			semester: `SS ${new Date().getFullYear()}`,
-			events: []
-		}
-	})
-
-	const error = serverError || clientError
+	const eventsData = initialData || {
+		semester: `SS ${new Date().getFullYear()}`,
+		events: []
+	}
+	const error = serverError
 
 	const [selectedEventIndex, setSelectedEventIndex] = useState<number | null>(
 		null
@@ -74,10 +60,6 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 		setIsCalModalOpen(false)
 	}, [])
 
-	useEffect(() => {
-		setSelectedEventIndex(null)
-	}, [eventsData])
-
 	return (
 		<TerminalSection
 			title="Aktuelle Veranstaltungen"
@@ -96,14 +78,16 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 						style={{ maxHeight: 'none' }}
 					>
 						<TerminalList>
-							{isError ? (
+							{error ? (
 								<div className="p-4 text-terminal-lightGreen">
 									<p className="text-md mb-2">
 										Oh nein! Beim Abrufen der Events ist etwas schiefgelaufen.
 									</p>
 									<p className="text-sm text-terminal-lightGreen/60">
-										{error instanceof Error
-											? error.message
+										{typeof error === 'object' &&
+										error !== null &&
+										'message' in error
+											? (error as { message: string }).message
 											: typeof error === 'string'
 												? error
 												: 'Unbekannter Fehler'}
@@ -113,13 +97,6 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 										Kaffeepause.
 										<br />
 										Bitte versuche es später noch einmal!
-									</p>
-								</div>
-							) : isFetching &&
-								(!eventsData?.events || eventsData.events.length === 0) ? (
-								<div className="p-4 max-w-lg">
-									<p className="text-terminal-text/80 animate-pulse">
-										Veranstaltungen werden geladen...
 									</p>
 								</div>
 							) : !eventsData?.events || eventsData.events.length === 0 ? (
@@ -258,6 +235,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 										)}
 									>
 										{eventsData?.events?.map((event, index) => (
+											// biome-ignore lint/a11y/noStaticElementInteractions: no problem
 											<div
 												key={index}
 												onClick={() => handleEventClick(index)}
@@ -267,7 +245,6 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 														handleEventClick(index)
 													}
 												}}
-												aria-label={`Event: ${event.title}`}
 											>
 												<strong className="text-terminal-highlight text-[1.05rem]">
 													{event.title}

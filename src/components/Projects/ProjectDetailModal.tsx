@@ -86,6 +86,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 									<div className="flex flex-col md:flex-row gap-6 p-1">
 										{project.imageUrl && (
 											<div className="hidden md:block md:w-1/3 shrink-0">
+												{/** biome-ignore lint/performance/noImgElement: TODO */}
 												<img
 													src={project.imageUrl}
 													alt={project.title}

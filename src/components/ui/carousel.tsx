@@ -3,10 +3,9 @@ import useEmblaCarousel, {
 } from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import * as React from 'react'
-
+import { useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { useRef } from 'react'
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -167,13 +166,13 @@ const Carousel = React.forwardRef<
 					canScrollNext
 				}}
 			>
+				{/** biome-ignore lint/a11y/useSemanticElements: not a problem */}
 				<div
 					ref={ref}
 					onKeyDownCapture={handleKeyDown}
 					onMouseEnter={() => setUserInteracted(true)}
 					onMouseLeave={() => resetUserInteraction()}
 					className={cn('relative', className)}
-					// biome-ignore lint/a11y/useSemanticElements: <explanation>
 					role="region"
 					aria-roledescription="carousel"
 					{...props}

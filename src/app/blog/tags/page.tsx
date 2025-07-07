@@ -1,3 +1,5 @@
+import { allPosts } from 'contentlayer/generated'
+import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import {
 	Breadcrumb,
@@ -6,8 +8,6 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import { allPosts } from 'contentlayer/generated'
-import Link from 'next/link'
 
 export default function TagsIndexPage() {
 	// Get all unique tags and count how many posts use each tag

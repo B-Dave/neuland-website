@@ -1,9 +1,9 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 // Type for blog post metadata
 interface BlogPost {
@@ -19,7 +19,10 @@ interface BlogPost {
 export function TagFilter({
 	tags,
 	posts
-}: { tags: string[]; posts: BlogPost[] }) {
+}: {
+	tags: string[]
+	posts: BlogPost[]
+}) {
 	const [selectedTags, setSelectedTags] = useState<string[]>([])
 
 	const filteredPosts =

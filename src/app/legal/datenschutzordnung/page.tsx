@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import FetchErrorMessage from '@/components/Markdown/FetchErrorMessage'
 import MarkdownContent from '@/components/Markdown/MarkdownContent'
 import {
@@ -7,7 +8,6 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import Link from 'next/link'
 
 async function fetchDatenschutzContent() {
 	try {
@@ -53,31 +53,29 @@ export default async function DatenschutzOrdnung() {
 	const result = await fetchDatenschutzContent()
 
 	return (
-		<>
-			<div className="pt-20">
-				<Breadcrumb className="mb-6">
-					<BreadcrumbList>
-						<BreadcrumbItem>
-							<BreadcrumbLink asChild>
-								<Link href="/">root</Link>
-							</BreadcrumbLink>
-						</BreadcrumbItem>
-						<BreadcrumbSeparator />
-						<BreadcrumbItem>
-							<BreadcrumbLink>Datenschutz Neuland</BreadcrumbLink>
-						</BreadcrumbItem>
-					</BreadcrumbList>
-				</Breadcrumb>
+		<div className="pt-20">
+			<Breadcrumb className="mb-6">
+				<BreadcrumbList>
+					<BreadcrumbItem>
+						<BreadcrumbLink asChild>
+							<Link href="/">root</Link>
+						</BreadcrumbLink>
+					</BreadcrumbItem>
+					<BreadcrumbSeparator />
+					<BreadcrumbItem>
+						<BreadcrumbLink>Datenschutz Neuland</BreadcrumbLink>
+					</BreadcrumbItem>
+				</BreadcrumbList>
+			</Breadcrumb>
 
-				{result.success && result.markdownContents ? (
-					<MarkdownContent content={result.markdownContents} showToc />
-				) : (
-					<FetchErrorMessage
-						title="der Datenschutzordnung"
-						error={result.error}
-					/>
-				)}
-			</div>
-		</>
+			{result.success && result.markdownContents ? (
+				<MarkdownContent content={result.markdownContents} showToc />
+			) : (
+				<FetchErrorMessage
+					title="der Datenschutzordnung"
+					error={result.error}
+				/>
+			)}
+		</div>
 	)
 }

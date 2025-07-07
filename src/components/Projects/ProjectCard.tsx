@@ -1,3 +1,7 @@
+import { motion } from 'framer-motion'
+import { ChevronRight, Code, ExternalLink } from 'lucide-react'
+import type React from 'react'
+import { memo, useCallback } from 'react'
 import {
 	Card,
 	CardContent,
@@ -5,10 +9,6 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card'
-import { motion } from 'framer-motion'
-import { ChevronRight, Code, ExternalLink } from 'lucide-react'
-import type React from 'react'
-import { memo, useCallback } from 'react'
 
 export interface ProjectLink {
 	label: string

@@ -1,8 +1,7 @@
 'use client'
 
 import type React from 'react'
-import { type JSX, useEffect } from 'react'
-import { useCallback, useRef, useState } from 'react'
+import { type JSX, useCallback, useEffect, useRef, useState } from 'react'
 import '../../styles/animations.css'
 import { useAptabase } from '@aptabase/react'
 import StickyNote from './StickyNote'

@@ -1,3 +1,7 @@
+import { allPosts } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
+import { RssIcon, TagIcon } from 'lucide-react'
+import Link from 'next/link'
 import { PostCard } from '@/components/blog/PostCard'
 import {
 	Breadcrumb,
@@ -16,10 +20,6 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
-import { RssIcon, TagIcon } from 'lucide-react'
-import Link from 'next/link'
 
 export default async function Home({
 	searchParams

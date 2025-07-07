@@ -1,13 +1,13 @@
 'use client'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowUpRight, Code, Filter, Github, Terminal } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import ProjectCard, {
 	type ProjectDetails
 } from '@/components/Projects/ProjectCard'
 import ProjectDetailModal from '@/components/Projects/ProjectDetailModal'
 import TerminalButton from '@/components/TerminalButton'
 import projectsData from '@/data/projects.json'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, Code, Filter, Github, Terminal } from 'lucide-react'
-import { useMemo, useState } from 'react'
 
 const uniqueTags = (projectsData as ProjectDetails[]).reduce((acc, project) => {
 	project.tags?.forEach((tag) => acc.add(tag))

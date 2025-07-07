@@ -1,7 +1,7 @@
 import {
+	dehydrate,
 	HydrationBoundary,
-	QueryClient,
-	dehydrate
+	QueryClient
 } from '@tanstack/react-query'
 import { getEventsData } from './EventsLoader'
 import TerminalEvents from './TerminalEvents'

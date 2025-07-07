@@ -1,16 +1,16 @@
 // In Next.js, this file would be called: app/providers.tsx
 'use client'
 
-import { BackgroundProvider } from '@/contexts/BackgroundContext'
 import { AptabaseProvider } from '@aptabase/react'
 // Since QueryClientProvider relies on useContext under the hood, we have to put 'use client' on top
 import {
 	HydrationBoundary,
+	isServer,
 	QueryClient,
-	QueryClientProvider,
-	isServer
+	QueryClientProvider
 } from '@tanstack/react-query'
 import { useState } from 'react'
+import { BackgroundProvider } from '@/contexts/BackgroundContext'
 import RouteTracker from './Layout/RouteTracker'
 
 function makeQueryClient() {
@@ -28,7 +28,7 @@ function makeQueryClient() {
 	})
 }
 
-let browserQueryClient: QueryClient | undefined = undefined
+let browserQueryClient: QueryClient | undefined
 
 function getQueryClient() {
 	if (isServer) {

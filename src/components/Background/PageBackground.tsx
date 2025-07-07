@@ -1,6 +1,6 @@
 'use client'
-import { useBackground } from '@/contexts/BackgroundContext'
 import type React from 'react'
+import { useBackground } from '@/contexts/BackgroundContext'
 import AmbientBackground from './AmbientBackground'
 import GameOfLife from './GameOfLife'
 
