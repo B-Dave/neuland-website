@@ -1,4 +1,5 @@
 'use client'
+import { Terminal } from 'lucide-react'
 import type React from 'react'
 import { useEffect, useRef, useState } from 'react'
 
@@ -71,7 +72,9 @@ const TerminalSection: React.FC<TerminalSectionProps> = ({
 			<h2
 				className={`${getTitleClass()} font-bold mb-4 font-mono text-terminal-cyan flex items-center`}
 			>
-				{showPrefix && <span className="text-terminal-text mr-3">{'>'}</span>}
+				{showPrefix && (
+					<Terminal className="text-terminal-text mr-2" size={24} />
+				)}
 				{title}
 			</h2>
 			{subtitle && (

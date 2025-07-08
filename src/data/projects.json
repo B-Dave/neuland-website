@@ -15,7 +15,7 @@
 		],
 		"tags": ["React Native", "TypeScript", "Mobile"],
 		"longDescription": "Neuland Next bietet als inoffizielle Campus-App für die THI eine moderne und benutzerfreundliche Oberfläche für Studierende, um den Studienalltag zu erleichtern.",
-		"imageUrl": "/assets/neuland-next/next_1.webp",
+		"imageUrl": "/assets/next2.webp",
 		"additionalInfo": "Die App wurde mit React Native und Expo entwickelt und ist sowohl im App Store als auch im Play Store verfügbar."
 	},
 	{
@@ -33,6 +33,7 @@
 			}
 		],
 		"tags": ["Cybersecurity"],
+		"imageUrl": "/assets/ctf-team.webp",
 		"longDescription": "Unser CTF-Team nimmt regelmäßig an Capture-the-Flag-Wettbewerben teil, bei denen es darum geht, IT-Sicherheitsprobleme zu lösen und \"Flaggen\" zu erobern.",
 		"additionalInfo": "Diese Wettbewerbe sind eine hervorragende Möglichkeit, praktische Erfahrungen im Bereich der IT-Sicherheit zu sammeln und die eigenen Fähigkeiten weiterzuentwickeln."
 	},
@@ -47,9 +48,10 @@
 			},
 			{
 				"label": "GitHub",
-				"url": "https://github.com/neuland-ingolstadt/member-id"
+				"url": "https://github.com/member-id"
 			}
 		],
+		"imageUrl": "/assets/member-id.webp",
 		"tags": ["Rust", "Next.js", "TypeScript"],
 		"longDescription": "Ein umfassendes digitales Identitätssystem, das moderne Webtechnologien mit kryptographischer Sicherheit kombiniert. Es bietet sichere QR-Generierung, Echtzeit-Verifikation, Apple Wallet-Integration und ein Dashboard zur Verfolgung von Scan-Historie und Statistiken.",
 		"additionalInfo": "Das System wurde mit Rust für die Backend-Logik und Next.js für das Frontend entwickelt, mit besonderem Fokus auf Sicherheit und Benutzerfreundlichkeit."
@@ -68,25 +70,12 @@
 				"url": "https://github.com/neuland-ingolstadt/orientierungsphase"
 			}
 		],
-		"imageUrl": "/assets/ersti/image.webp",
+		"imageUrl": "/assets/ersti-kit.webp",
 		"tags": ["Next.js", "Web", "StudVer"],
 		"longDescription": "Das Ersti-Hilfe-Kit ist eine Webseite speziell für Erstsemester an der THI. Hier finden neue Studierende alle wichtigen Informationen zum Studienstart, zur Orientierung auf dem Campus und in der Stadt.",
 		"additionalInfo": "Das Projekt wurde mit Next.js umgesetzt, mit einem Fokus auf Benutzerfreundlichkeit und ansprechendes Design."
 	},
-	{
-		"id": "it-studver",
-		"title": "IT für StudVer & Vereine",
-		"description": "IT-Infrastruktur für die Studierendenvertretung und studentische Vereine.",
-		"links": [
-			{
-				"label": "Kontakt",
-				"url": "mailto:info@neuland-ingolstadt.de"
-			}
-		],
-		"tags": ["Infrastruktur"],
-		"longDescription": "Wir stehen Vereinen und Organisationen an der THI mit Rat und Tat zur Seite, wenn es um die Einrichtung und Verwaltung von IT-Infrastruktur geht.",
-		"additionalInfo": "Wir bieten Unterstützung bei der Einrichtung von Servern, Webanwendungen und anderen IT-Diensten für Vereine und Organisationen an der THI."
-	},
+
 	{
 		"id": "neuland-app",
 		"title": "neuland.app",
@@ -98,6 +87,7 @@
 			}
 		],
 		"tags": ["Next.js", "PWA", "Web"],
+		"imageUrl": "/assets/neuland-app.webp",
 		"longDescription": "Die ist eine progressive Web-App, die als Alternative zur offiziellen THI-App entwickelt wurde. In ihr liegt der Grunstein für Neuland Ingolstadt und die Neuland Next App.",
 		"additionalInfo": "Das Projekt wurde als Next.js-Anwendung umgesetzt und ist mittlerweile von unserer Neuland Next App abgelöst worden und wurde daher eingestellt."
 	},
@@ -116,6 +106,7 @@
 			}
 		],
 		"tags": ["API", "GraphQL"],
+		"imageUrl": "/assets/neuland-api.webp",
 		"longDescription": "Die Neuland API ist das Herzstück unserer THI-Projekte. Egal ob für Mensa, Campus Events oder Hochschulsport - sie ist die zentrale Anlaufstelle für alle Daten und Informationen, die unsere Anwendungen benötigen.",
 		"additionalInfo": "Die API ist in Node.js als GraphQL-Server implementiert und bietet eine flexible und leistungsstarke Schnittstelle für unsere Frontend-Anwendungen."
 	},
@@ -135,8 +126,23 @@
 			}
 		],
 		"tags": ["Next.js", "TypeScript"],
+		"imageUrl": "/assets/website-blog.webp",
 		"longDescription": "Die Website dient als Showcase für unsere Projekte und bietet Informationen über den Verein und seine Veranstaltungen. Sie nutzt einen Retro-Terminal-Stil, um unsere Werte effektiv zu präsentieren und versteckte Features zu integrieren, um die Attraktivität zu steigern.",
 		"additionalInfo": "Die Website wurde mit Next.js und Tailwind CSS entwickelt und bietet eine moderne, responsive Benutzeroberfläche mit Analytics-Integration."
+	},
+	{
+		"id": "it-studver",
+		"title": "IT für StudVer & Vereine",
+		"description": "IT-Infrastruktur für die Studierendenvertretung und studentische Vereine.",
+		"links": [
+			{
+				"label": "Kontakt",
+				"url": "mailto:info@neuland-ingolstadt.de"
+			}
+		],
+		"tags": ["Infrastruktur"],
+		"longDescription": "Wir stehen Vereinen und Organisationen an der THI mit Rat und Tat zur Seite, wenn es um die Einrichtung und Verwaltung von IT-Infrastruktur geht.",
+		"additionalInfo": "Wir bieten Unterstützung bei der Einrichtung von Servern, Webanwendungen und anderen IT-Diensten für Vereine und Organisationen an der THI."
 	},
 	{
 		"id": "neuland-ical",

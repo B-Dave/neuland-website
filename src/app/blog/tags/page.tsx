@@ -8,6 +8,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import GlassBox from '@/components/ui/GlassBox'
 
 export default function TagsIndexPage() {
 	// Get all unique tags and count how many posts use each tag
@@ -72,12 +73,9 @@ export default function TagsIndexPage() {
 							href={`/blog/tags/${encodeURIComponent(tag)}`}
 							className="group no-underline"
 						>
-							<div className="flex items-center justify-between p-4 bg-terminal-window border border-terminal-window-border rounded-lg group-hover:border-terminal-cyan transition-colors duration-300">
+							<GlassBox className="flex items-center justify-between p-4 group-hover:border-terminal-cyan transition-colors duration-300">
 								<div className="flex items-center">
-									<Badge
-										variant="outline"
-										className="text-sm py-0.5 px-2 mr-3 group-hover:bg-terminal-cyan/10"
-									>
+									<Badge variant="outline" className="text-sm py-0.5 px-2 mr-3">
 										{displayTag}
 									</Badge>
 									<span className="text-terminal-text/70 text-sm">
@@ -90,7 +88,7 @@ export default function TagsIndexPage() {
 										→
 									</span>
 								</span>
-							</div>
+							</GlassBox>
 						</Link>
 					)
 				})}

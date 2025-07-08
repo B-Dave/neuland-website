@@ -109,8 +109,8 @@ const NextAppShowcase = () => {
 										scale: activeIndex === idx ? 1.4 : 1,
 										backgroundColor:
 											activeIndex === idx
-												? 'rgba(51, 195, 240, 0.8)'
-												: 'rgba(51, 195, 240, 0.3)'
+												? 'rgba(30, 255, 45, 0.8)'
+												: 'rgba(208, 208, 208, 0.3)'
 									}}
 									whileHover={{ scale: 1.2 }}
 									transition={{ duration: 0.2 }}
@@ -141,7 +141,7 @@ const NextAppShowcase = () => {
 								Studienalltag.
 							</p>
 
-							<div className="space-y-4 mb-8">
+							<div className="grid grid-cols-1 gap-4 mb-8">
 								<FeatureItem
 									icon={<Calendar className="h-5 w-5 text-terminal-cyan" />}
 									title="Stundenplan"

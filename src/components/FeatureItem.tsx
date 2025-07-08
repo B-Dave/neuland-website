@@ -16,16 +16,24 @@ const FeatureItem = memo(
 				whileInView={{ opacity: 1, x: 0 }}
 				transition={{ duration: 0.5, delay }}
 				viewport={{ once: true }}
-				className="flex items-start"
+				className="rounded-2xl shadow-xl bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl border border-terminal-text/15 p-4 flex items-center gap-3 group transition-transform duration-300 hover:shadow-2xl"
+				style={{
+					background:
+						'linear-gradient(135deg, rgba(34,193,195,0.10) 0%, rgba(17,17,17,0.70) 100%)',
+					backdropFilter: 'blur(16px)',
+					WebkitBackdropFilter: 'blur(16px)'
+				}}
 			>
-				<div className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full  mr-4">
+				<div className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-terminal-cyan/10 border border-terminal-cyan/30 shadow-sm backdrop-blur-sm mr-2 group-hover:bg-terminal-cyan/20 transition-colors">
 					{icon}
 				</div>
 				<div>
-					<h4 className="font-semibold text-terminal-cyan leading-tight mb-0">
+					<p className="font-extrabold text-terminal-text text-base mb-0.5 drop-shadow-md">
 						{title}
-					</h4>
-					<p className="text-sm opacity-90 mt-0.5">{description}</p>
+					</p>
+					<p className="text-sm text-terminal-text/90 leading-snug m-0">
+						{description}
+					</p>
 				</div>
 			</motion.div>
 		)

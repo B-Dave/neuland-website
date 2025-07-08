@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
 import type React from 'react'
 import { memo, useCallback, useMemo, useState } from 'react'
 import projectsData from '@/data/projects.json'
@@ -62,10 +61,7 @@ const ProjectsShowcase: React.FC = () => {
 						github.com/neuland-ingolstadt
 					</a>
 				</div>
-				<TerminalButton href="/projects">
-					<ArrowRight size={16} className="mr-2" />
-					Alle Projekte anzeigen
-				</TerminalButton>
+				<TerminalButton href="/projects">Alle Projekte anzeigen</TerminalButton>
 			</div>
 
 			{/* Project detail modal */}

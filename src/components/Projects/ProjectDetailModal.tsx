@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import type React from 'react'
 import { memo, useCallback, useEffect, useState } from 'react'
+import TerminalButton from '../TerminalButton'
 import TypewriterText from '../TypewriterText'
 import type { ProjectDetails } from './ProjectCard'
 import ProjectTerminalWindow from './ProjectTerminalWindow'
@@ -85,14 +86,31 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 								<div className="flex flex-col h-full">
 									<div className="flex flex-col md:flex-row gap-6 p-1">
 										{project.imageUrl && (
-											<div className="hidden md:block md:w-1/3 shrink-0">
+											<div className="hidden md:block md:w-2/5 shrink-0 flex flex-col items-center justify-center">
 												{/** biome-ignore lint/performance/noImgElement: TODO */}
 												<img
 													src={project.imageUrl}
 													alt={project.title}
-													className="max-h-[60vh]"
+													className="w-full max-w-[420px] max-h-[320px] object-cover rounded-xl border border-terminal-window-border shadow-md"
 													loading="lazy"
 												/>
+												{project.tags && project.tags.length > 0 && (
+													<div className="mt-4 w-full">
+														<p className="text-sm mb-2 font-mono opacity-70">
+															$ tags --list
+														</p>
+														<div className="flex flex-wrap gap-2">
+															{project.tags.map((tag) => (
+																<span
+																	key={tag}
+																	className="text-sm px-2 py-1 rounded-sm bg-terminal-window border border-terminal-window-border text-terminal-cyan"
+																>
+																	{tag}
+																</span>
+															))}
+														</div>
+													</div>
+												)}
 											</div>
 										)}
 
@@ -122,40 +140,22 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 														</div>
 													)}
 
-													{project.tags && project.tags.length > 0 && (
-														<div className="mb-6">
-															<p className="text-sm mb-2 font-mono opacity-70">
-																$ tags --list
-															</p>
-															<div className="flex flex-wrap gap-2">
-																{project.tags.map((tag) => (
-																	<span
-																		key={tag}
-																		className="text-xs px-2 py-1 rounded-sm bg-terminal-window border border-terminal-window-border text-terminal-cyan"
-																	>
-																		{tag}
-																	</span>
-																))}
-															</div>
-														</div>
-													)}
-
 													<div className="mt-4">
 														<p className="text-sm mb-4 font-mono opacity-70">
 															$ links --open
 														</p>
 														<div className="flex flex-wrap gap-3">
 															{project.links.map((link) => (
-																<a
+																<TerminalButton
 																	key={link.label}
 																	href={link.url}
 																	target="_blank"
 																	rel="noreferrer noopener"
-																	className="text-terminal-cyan flex items-center px-3 py-1 border border-terminal-cyan rounded-sm hover:bg-terminal-cyan hover:bg-opacity-10 transition-colors hover:text-terminal-bg duration-300"
+																	className="flex items-center px-3 py-1"
 																>
 																	<ExternalLink size={14} className="mr-2" />
 																	{link.label}
-																</a>
+																</TerminalButton>
 															))}
 														</div>
 													</div>
