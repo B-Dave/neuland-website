@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 
 			<CardHeader className="p-5 pb-2 flex flex-col items-start gap-2 bg-transparent">
 				<CardTitle className="text-xl font-extrabold flex items-center gap-2 text-terminal-text drop-shadow-md">
-					<Code size={22} className="text-terminal-text/70 mr-1" />
+					<Code size={22} className="text-terminal-cyan/70 mr-1" />
 					{project.title}
 				</CardTitle>
 				{/* Tags */}

@@ -127,7 +127,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 																project.longDescription || project.description
 															}
 															className="text-terminal-text"
-															delay={5}
+															delay={1}
 															preventLayoutJumps
 														/>
 													</div>
@@ -141,23 +141,74 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 													)}
 
 													<div className="mt-4">
-														<p className="text-sm mb-4 font-mono opacity-70">
-															$ links --open
-														</p>
-														<div className="flex flex-wrap gap-3">
-															{project.links.map((link) => (
-																<TerminalButton
-																	key={link.label}
-																	href={link.url}
-																	target="_blank"
-																	rel="noreferrer noopener"
-																	className="flex items-center px-3 py-1"
-																>
-																	<ExternalLink size={14} className="mr-2" />
-																	{link.label}
-																</TerminalButton>
-															))}
-														</div>
+														{!project.imageUrl &&
+														project.tags &&
+														project.tags.length > 0 ? (
+															<div className="flex flex-row gap-8 mt-4">
+																{/* Links column */}
+																<div className="flex flex-col">
+																	<p className="text-sm mb-2 font-mono opacity-70">
+																		$ links --open
+																	</p>
+																	<div className="flex flex-wrap gap-3 items-center">
+																		{project.links.map((link) => (
+																			<TerminalButton
+																				key={link.label}
+																				href={link.url}
+																				target="_blank"
+																				rel="noreferrer noopener"
+																				className="flex items-center px-3 py-1"
+																			>
+																				<ExternalLink
+																					size={14}
+																					className="mr-2"
+																				/>
+																				{link.label}
+																			</TerminalButton>
+																		))}
+																	</div>
+																</div>
+																{/* Tags column */}
+																<div className="flex flex-col">
+																	<p className="text-sm mb-2 font-mono opacity-70">
+																		$ tags --list
+																	</p>
+																	<div className="flex flex-wrap gap-2">
+																		{project.tags.map((tag) => (
+																			<span
+																				key={tag}
+																				className="text-sm px-2 py-1 rounded-sm bg-terminal-window border border-terminal-window-border text-terminal-cyan"
+																			>
+																				{tag}
+																			</span>
+																		))}
+																	</div>
+																</div>
+															</div>
+														) : (
+															<div className="mt-4">
+																<p className="text-sm mb-4 font-mono opacity-70">
+																	$ links --open
+																</p>
+																<div className="flex flex-wrap gap-3 items-center">
+																	{project.links.map((link) => (
+																		<TerminalButton
+																			key={link.label}
+																			href={link.url}
+																			target="_blank"
+																			rel="noreferrer noopener"
+																			className="flex items-center px-3 py-1"
+																		>
+																			<ExternalLink
+																				size={14}
+																				className="mr-2"
+																			/>
+																			{link.label}
+																		</TerminalButton>
+																	))}
+																</div>
+															</div>
+														)}
 													</div>
 												</>
 											) : (

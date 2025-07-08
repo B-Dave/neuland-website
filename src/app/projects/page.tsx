@@ -1,6 +1,6 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, Code, Filter, Github, Terminal } from 'lucide-react'
+import { Code, Filter, Github, Terminal } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import ProjectCard, {
 	type ProjectDetails
@@ -49,7 +49,7 @@ const ProjectsPage = () => {
 				className="max-w-6xl mx-auto mb-12"
 			>
 				<div className="flex items-center gap-3 mb-6">
-					<Terminal className="text-terminal-cyan" size={32} />
+					<Terminal className="text-terminal-text" size={32} />
 					<h1 className="text-3xl md:text-4xl font-bold text-terminal-cyan font-mono">
 						Unsere Projekte
 					</h1>
@@ -74,8 +74,8 @@ const ProjectsPage = () => {
 				>
 					<Code size={16} />
 					<span>
-						{filteredProjects.length} project
-						{filteredProjects.length !== 1 ? 's' : ''} found
+						{filteredProjects.length} Projekt
+						{filteredProjects.length !== 1 ? 'e' : ''} gefunden
 					</span>
 				</motion.div>
 			</motion.div>
@@ -85,7 +85,7 @@ const ProjectsPage = () => {
 				<div className="flex items-center gap-3 mb-4">
 					<Filter size={20} className="text-terminal-cyan" />
 					<span className="text-terminal-text/80 font-mono">
-						Filter by technology:
+						Filter nach Technologie:
 					</span>
 				</div>
 
@@ -94,12 +94,12 @@ const ProjectsPage = () => {
 						type="button"
 						className={`px-4 py-2 rounded-md font-mono border transition-all duration-200 ${
 							!activeTag
-								? 'border-terminal-cyan bg-terminal-cyan text-black'
+								? 'border-terminal-cyan bg-terminal-cyan/80 text-black'
 								: 'border-terminal-text/30 text-terminal-text/70 hover:border-terminal-cyan hover:text-terminal-cyan'
 						}`}
 						onClick={() => setActiveTag(null)}
 					>
-						All Projects
+						Alle Projekte
 					</button>
 					{[...uniqueTags].map((tag) => (
 						<button
@@ -107,7 +107,7 @@ const ProjectsPage = () => {
 							key={tag}
 							className={`px-4 py-2 rounded-md font-mono border transition-all duration-200 ${
 								activeTag === tag
-									? 'border-terminal-cyan bg-terminal-cyan text-black'
+									? 'border-terminal-cyan bg-terminal-cyan/80 text-black'
 									: 'border-terminal-text/30 text-terminal-text/70 hover:border-terminal-cyan hover:text-terminal-cyan'
 							}`}
 							onClick={() => setActiveTag(tag)}
@@ -149,7 +149,7 @@ const ProjectsPage = () => {
 					>
 						<Code size={48} className="text-terminal-text/40 mx-auto mb-4" />
 						<p className="text-terminal-text/60 font-mono">
-							No projects found for this filter.
+							Keine Projekte gefunden für diesen Filter.
 						</p>
 					</motion.div>
 				)}
@@ -164,13 +164,12 @@ const ProjectsPage = () => {
 			>
 				<div className="text-center">
 					<div className="flex items-center justify-center gap-2 mb-4">
-						<Github size={20} className="text-terminal-cyan" />
 						<span className="text-terminal-text/80 font-mono">
 							Sieh dir unsere Projekte auf GitHub an!
 						</span>
 					</div>
 					<TerminalButton href="https://github.com/neuland-ingolstadt">
-						<ArrowUpRight
+						<Github
 							size={16}
 							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 						/>

@@ -171,5 +171,19 @@
 		"tags": ["TypeScript", "Next.js", "Infrastruktur"],
 		"longDescription": "Das System authentifiziert Benutzer über E-Mail, verifiziert ihre Immatrikulation durch das Versenden einer weiteren E-Mail an ihre Studentenadresse und speichert das Ergebnis in einem easyVerein oder Webling Backend.",
 		"additionalInfo": "Das Tool unterstützt easyVerein und Webling als Backend-Systeme und kann einfach um weitere Mitgliederverwaltungssysteme erweitert werden. Die Implementierung nutzt JWT für die Datenübertragung ohne separate Datenbank."
+	},
+	{
+		"id": "thi-olympics-scoreboard",
+		"title": "THI Olympiade Scoreboard",
+		"description": "Ein Scoreboard für die THI Olympiade, welches interaktiv Ergebnisse der Wettbewerbe anzeigt.",
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/thi-olympics-scoreboard"
+			}
+		],
+		"tags": ["Flutter", "Web"],
+		"longDescription": "Das Scoreboard für die THI Olympiade ist eine Web-App, welche die Ergebnisse der Wettbewerbe anzeigt und interaktiv ermöglicht, die Ergebnisse der Spiele zu pflegen.",
+		"additionalInfo": "Die Web-App wurde mit Dart und Flutter umgesetzt und wird für die von der Studentenvertretung organisierten THI Olympiade eingesetzt."
 	}
 ]
