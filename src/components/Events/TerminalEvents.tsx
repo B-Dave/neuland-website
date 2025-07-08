@@ -62,7 +62,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 
 	return (
 		<TerminalSection
-			title="Aktuelle Veranstaltungen"
+			title="Unsere Veranstaltungen"
 			subtitle={`Events im ${eventsData?.semester || `SS ${new Date().getFullYear()}`}`}
 			headingLevel={2}
 		>
@@ -100,7 +100,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 									</p>
 								</div>
 							) : !eventsData?.events || eventsData.events.length === 0 ? (
-								<div className="p-4 text-terminal-lightGreen">
+								<div className="p-4 text-terminal-text font-bold">
 									<p className="text-md mb-3">
 										Danke für eure Teilnahme an den über 20 Events in diesem
 										Semester! 🎉

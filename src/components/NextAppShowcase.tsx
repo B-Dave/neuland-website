@@ -65,9 +65,8 @@ const NextAppShowcase = () => {
 				>
 					<h2 className="text-3xl mb-1 font-bold">Neuland Next</h2>
 					<p className="text-xl/loose text-terminal-text ">
-						Deine inoffizielle{' '}
-						<span className="text-terminal-cyan">Campus App</span> für die{' '}
-						<span className="text-terminal-cyan">TH Ingolstadt</span>
+						Deine inoffizielle <span className="font-bold">Campus App</span> für
+						die <span className="font-bold">TH Ingolstadt</span>
 					</p>
 				</motion.div>
 

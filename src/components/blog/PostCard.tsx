@@ -21,7 +21,7 @@ export function PostCard({ post }: PostCardProps) {
 
 	return (
 		<Card
-			className="h-full rounded-2xl border-none shadow-xl cursor-pointer group relative overflow-hidden flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:scale-[1.025] hover:shadow-2xl"
+			className="h-full rounded-2xl border-terminal-text/15 shadow-xl cursor-pointer group relative overflow-hidden flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:scale-[1.025] hover:shadow-2xl"
 			style={{
 				background:
 					'linear-gradient(135deg, rgba(34,193,195,0.10) 0%, rgba(17,17,17,0.70) 100%)',

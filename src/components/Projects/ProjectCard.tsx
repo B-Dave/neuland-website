@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 
 	return (
 		<Card
-			className="h-full rounded-2xl border-none shadow-xl cursor-pointer group relative overflow-hidden flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:shadow-2xl"
+			className="h-full rounded-2xl border-terminal-text/15 shadow-xl cursor-pointer group relative overflow-hidden flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:shadow-2xl"
 			onClick={onClick}
 			style={{
 				background:
@@ -91,7 +91,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 							href={link.url}
 							target="_blank"
 							rel="noreferrer noopener"
-							className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-terminal-text/20 text-terminal-text font-semibold hover:bg-terminal-text/40 hover:text-terminal-highlight transition-colors shadow-sm border border-terminal-text/30 backdrop-blur-sm whitespace-nowrap max-w-full truncate no-underline text-xs"
+							className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-terminal-text/20 text-terminal-text font-semibold hover:bg-terminal-text/40  transition-colors shadow-sm border border-terminal-text/30 backdrop-blur-sm whitespace-nowrap max-w-full truncate no-underline text-xs"
 							onClick={handleLinkClick}
 						>
 							<ExternalLink size={14} className="mr-1" />

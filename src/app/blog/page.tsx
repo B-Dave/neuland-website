@@ -3,6 +3,7 @@ import { compareDesc } from 'date-fns'
 import { RssIcon, TagIcon } from 'lucide-react'
 import Link from 'next/link'
 import { PostCard } from '@/components/blog/PostCard'
+import TerminalButton from '@/components/TerminalButton'
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -10,7 +11,6 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import { Button } from '@/components/ui/button'
 import {
 	Pagination,
 	PaginationContent,
@@ -137,31 +137,26 @@ export default async function Home({
 					Neuland Blog
 				</h1>
 				<div className="flex gap-2">
-					<Button variant="outline" asChild>
-						<Link
-							href="/feed"
-							className="flex items-center gap-2 no-underline group"
-							rel="noopener noreferrer"
-						>
-							<RssIcon
-								size={16}
-								className="transition-transform duration-300 group-hover:scale-110"
-							/>
-							<span>RSS Feed</span>
-						</Link>
-					</Button>
-					<Button variant="outline" asChild>
-						<Link
-							href="/blog/tags"
-							className="flex items-center gap-2 no-underline group"
-						>
-							<TagIcon
-								size={16}
-								className="transition-transform duration-300 group-hover:rotate-16"
-							/>
-							<span>Alle Tags</span>
-						</Link>
-					</Button>
+					<TerminalButton
+						href="/feed"
+						className="flex items-center gap-2 no-underline group"
+					>
+						RSS Feed
+						<RssIcon
+							size={16}
+							className="transition-transform duration-300 group-hover:scale-110"
+						/>
+					</TerminalButton>
+					<TerminalButton
+						href="/blog/tags"
+						className="flex items-center gap-2 no-underline group"
+					>
+						Alle Tags
+						<TagIcon
+							size={16}
+							className="transition-transform duration-300 group-hover:rotate-16"
+						/>
+					</TerminalButton>
 				</div>
 			</div>
 
