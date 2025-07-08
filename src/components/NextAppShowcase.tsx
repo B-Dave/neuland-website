@@ -63,8 +63,8 @@ const NextAppShowcase = () => {
 					viewport={{ once: true }}
 					className="text-center mb-12"
 				>
-					<h2 className="text-3xl mb-3 font-bold">Neuland Next</h2>
-					<p className="text-xl text-terminal-text">
+					<h2 className="text-3xl mb-1 font-bold">Neuland Next</h2>
+					<p className="text-xl/loose text-terminal-text ">
 						Deine inoffizielle{' '}
 						<span className="text-terminal-cyan">Campus App</span> für die{' '}
 						<span className="text-terminal-cyan">TH Ingolstadt</span>

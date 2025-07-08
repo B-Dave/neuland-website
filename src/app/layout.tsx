@@ -92,7 +92,7 @@ export default function RootLayout({
 			</head>
 
 			<body
-				className={`${overpassMono.variable} ${notoSans.variable} ${shantellSans.variable} font-mono antialiased`}
+				className={`${overpassMono.variable} ${notoSans.variable} ${shantellSans.variable} font-sans antialiased`}
 			>
 				<Providers>
 					<TerminalHeader />

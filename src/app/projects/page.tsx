@@ -51,7 +51,7 @@ const ProjectsPage = () => {
 				<div className="flex items-center gap-3 mb-6">
 					<Terminal className="text-terminal-cyan" size={32} />
 					<h1 className="text-3xl md:text-4xl font-bold text-terminal-cyan font-mono">
-						$ projects --all
+						Unsere Projekte
 					</h1>
 				</div>
 

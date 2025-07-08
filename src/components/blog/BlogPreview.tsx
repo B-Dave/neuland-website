@@ -3,9 +3,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { memo, useMemo } from 'react'
-import { Button } from '@/components/ui/button'
 import {
 	Carousel,
 	CarouselContent,
@@ -13,7 +11,8 @@ import {
 	CarouselNext,
 	CarouselPrevious
 } from '@/components/ui/carousel'
-import FeaturedPostCard from './FeaturedPostCard'
+import TerminalButton from '../TerminalButton'
+import BlogPostCard from './BlogPostCard'
 
 const BlogPreview = () => {
 	const posts = useMemo(
@@ -33,7 +32,7 @@ const BlogPreview = () => {
 	)
 
 	return (
-		<div className="relative">
+		<div className="relative overflow-visible">
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -46,11 +45,14 @@ const BlogPreview = () => {
 				</p>
 			</motion.div>
 
-			<Carousel opts={carouselOptions} className="w-full">
-				<CarouselContent className="-ml-4">
+			<Carousel opts={carouselOptions} className="w-full overflow-visible">
+				<CarouselContent className="-ml-4 overflow-visible">
 					{posts.map((post, idx) => (
-						<CarouselItem key={idx} className="pl-4 sm:basis-1/2 lg:basis-1/3">
-							<FeaturedPostCard post={post} />
+						<CarouselItem
+							key={idx}
+							className="pl-4 sm:basis-1/2 lg:basis-1/3 overflow-visible"
+						>
+							<BlogPostCard post={post} />
 						</CarouselItem>
 					))}
 				</CarouselContent>
@@ -60,11 +62,7 @@ const BlogPreview = () => {
 
 			<div className="mt-6 mb-8">
 				<div className="flex justify-end items-center">
-					<Button variant="outline" asChild>
-						<Link href="/blog" className="no-underline">
-							Alle Posts
-						</Link>
-					</Button>
+					<TerminalButton href="/blog">Alle Posts</TerminalButton>
 				</div>
 			</div>
 		</div>

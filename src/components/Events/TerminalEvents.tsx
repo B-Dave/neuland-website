@@ -66,7 +66,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 			subtitle={`Events im ${eventsData?.semester || `SS ${new Date().getFullYear()}`}`}
 			headingLevel={2}
 		>
-			<div className="max-w-5xl mx-auto justify-start mt-10 mb-8 relative overflow-visible min-h-[200px]">
+			<div className="max-w-5xl mx-auto justify-start mt-10 mb-8 relative overflow-visible min-h-[200px] font-mono">
 				<TerminalWindow
 					title={`eventsData.sh --semester '${eventsData?.semester || `SS ${new Date().getFullYear()}`}'`}
 					showStickyNote={true}

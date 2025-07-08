@@ -178,7 +178,7 @@ const TerminalHeader: React.FC = () => {
 						<NavLink
 							key={link.name}
 							link={link}
-							className="font-mono text-sm tracking-wider text-terminal-text hover:text-terminal-cyan transition-colors no-underline"
+							className=" tracking-wider text-terminal-text hover:text-terminal-cyan transition-colors no-underline"
 							onClick={() => {}}
 						/>
 					))}

@@ -1,8 +1,8 @@
-'use client'
 import type { Post } from 'contentlayer/generated'
 import { ChevronRight } from 'lucide-react'
 import moment from 'moment'
 import Link from 'next/link'
+import { memo } from 'react'
 import { Badge } from '@/components/ui/badge'
 import {
 	Card,
@@ -12,16 +12,16 @@ import {
 	CardTitle
 } from '@/components/ui/card'
 
-type PostCardProps = {
+interface BlogPostCardProps {
 	post: Post
 }
 
-export function PostCard({ post }: PostCardProps) {
+const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 	const formattedDate = post.date ? moment(post.date).format('DD.MM.YYYY') : ''
 
 	return (
 		<Card
-			className="h-full rounded-2xl border-none shadow-xl cursor-pointer group relative overflow-hidden flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:scale-[1.025] hover:shadow-2xl"
+			className="h-full rounded-2xl border-none shadow-xl cursor-pointer group relative flex flex-col bg-gradient-to-br from-white/10 to-terminal-windowTitle/60 backdrop-blur-xl transition-transform duration-300 hover:shadow-2xl"
 			style={{
 				background:
 					'linear-gradient(135deg, rgba(34,193,195,0.10) 0%, rgba(17,17,17,0.70) 100%)',
@@ -30,7 +30,7 @@ export function PostCard({ post }: PostCardProps) {
 			}}
 		>
 			<Link href={post.url} className="flex flex-col h-full no-underline">
-				<CardHeader className="p-5 pb-2 flex flex-col items-start bg-transparent">
+				<CardHeader className="p-5 pb-2 flex flex-col items-start gap-2 bg-transparent">
 					<CardTitle className="text-lg font-extrabold flex items-center gap-2 text-terminal-text drop-shadow-md">
 						{post.title}
 					</CardTitle>
@@ -73,3 +73,5 @@ export function PostCard({ post }: PostCardProps) {
 		</Card>
 	)
 }
+
+export default memo(BlogPostCard)

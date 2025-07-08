@@ -4,7 +4,7 @@ import TerminalButton from './TerminalButton'
 const TerminalMembership = () => {
 	return (
 		<div className="flex flex-col md:flex-row items-start my-10 gap-8 max-w-4xl mx-auto">
-			<div className="terminal-price-info border-2 border-terminal-window-border p-5 bg-terminal-window rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 md:w-2/5 self-start ml-0 mr-4">
+			<div className="terminal-price-info border-2 border-terminal-window-border p-5 bg-terminal-window rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 md:w-2/5 self-start ml-0 mr-4 font-mono">
 				<div className="text-terminal-text/60 mb-3 font-mono text-sm">
 					$ cat membership-fees.txt
 				</div>
