@@ -1,15 +1,46 @@
-# Neuland Ingolstadt e.V. - Website
+# Neuland Ingolstadt e.V. Website
 
-A stylish and modern website for the Neuland Ingolstadt e.V. association.
+<div align="center">
 
-Built with NextJS and React, this website showcases the association's activities, events, and community engagement.
+![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-black?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-black?style=for-the-badge&logo=typescript)
+![Bun](https://img.shields.io/badge/Bun-black?style=for-the-badge&logo=bun)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-black?style=for-the-badge&logo=tailwindcss)
 
-## Getting Started
+**A stylish, modern, and open-source website for Neuland Ingolstadt e.V. – built with Next.js, React, and Bun.**
+
+[🚀 Quick Start](#-quick-start) • [📋 Features](#-features) • [📦 Technology Stack](#-technology-stack) • [🤝 Contributing](#-contributing)
+
+</div>
+
+---
+
+## 🌟 Overview
+
+Neuland Ingolstadt e.V. Website is the digital home for our association, showcasing our activities, events, and community engagement. Built with the latest web technologies, it offers a beautiful, responsive, and accessible experience for members and visitors alike.
+
+---
+
+## 📑 Table of Contents
+
+- [Overview](#-overview)
+- [Quick Start](#-quick-start)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Development](#-development)
+- [Code Quality](#-code-quality)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js
-- Bun (only for development)
+- [Node.js](https://nodejs.org/)
+- [Bun](https://bun.sh/) (for development)
 
 ### Installation
 
@@ -20,7 +51,6 @@ cd neuland-website
 
 # Install dependencies
 bun install
-
 ```
 
 ### Development
@@ -31,15 +61,93 @@ Start the development server:
 bun run dev
 ```
 
-The site will be available at http://localhost:3000
+The site will be available at [http://localhost:3000](http://localhost:3000)
 
+---
 
-## Code Quality
+## 📋 Features
 
-```bash
-# Run linting
-bun run lint
+- **Modern UI/UX**: Clean, responsive design with dark/light mode
+- **Blog**: Markdown-powered blog with tags, previews, and featured posts
+- **Events**: Upcoming events section with calendar integration
+- **Projects**: Showcase of association projects
+- **Accessibility**: Keyboard navigation and WCAG compliance
+- **SEO Optimized**: Fast, discoverable, and shareable
+- **Open Source**: MIT licensed and community-driven
 
-# Format code
-bun run fmt
-```
+---
+
+## 📦 Technology Stack
+
+| Component      | Technology                | Purpose                                 |
+|---------------|---------------------------|-----------------------------------------|
+| **Frontend**  | Next.js, React, TypeScript| Modern web app with SSR & SSG           |
+| **Styling**   | Tailwind CSS, CSS Modules | Responsive, utility-first styling        |
+| **Bundler**   | Bun                       | Fast JS runtime and package manager      |
+| **Markdown**  | Contentlayer, MDX         | Blog content and static site generation  |
+| **UI**        | Custom Components         | Reusable, accessible UI elements         |
+
+---
+
+## 🛠️ Development
+
+- **Start Dev Server:**
+  ```bash
+  bun run dev
+  ```
+- **Build for Production:**
+  ```bash
+  bun run build
+  ```
+- **Start Production Server:**
+  ```bash
+  bun run start
+  ```
+
+---
+
+## 🧹 Code Quality
+
+- **Linting:**
+  ```bash
+  bun run lint
+  ```
+- **Formatting:**
+  ```bash
+  bun run fmt
+  ```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from everyone! To get started:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+**Code Style:**
+- Use [Biome](https://biomejs.dev/) for linting and formatting
+- Follow conventional commit messages
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**Made with ❤️ by [Robert Eggl](https://eggl.dev) and the Neuland Ingolstadt e.V. team**
+
+[![GitHub stars](https://img.shields.io/github/stars/neuland-ingolstadt/neuland-website?style=social)](https://github.com/neuland-ingolstadt/neuland-website)
+[![GitHub forks](https://img.shields.io/github/forks/neuland-ingolstadt/neuland-website?style=social)](https://github.com/neuland-ingolstadt/neuland-website)
+[![GitHub issues](https://img.shields.io/github/issues/neuland-ingolstadt/neuland-website)](https://github.com/neuland-ingolstadt/neuland-website/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/neuland-ingolstadt/neuland-website)](https://github.com/neuland-ingolstadt/neuland-website/pulls)
+
+</div>
