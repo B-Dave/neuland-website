@@ -15,7 +15,7 @@ Built with NextJS and React, this website showcases the association's activities
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/neuland-website.git
+git clone https://github.com/neuland-ingolstadt/neuland-website.git
 cd neuland-website
 
 # Install dependencies
@@ -38,8 +38,8 @@ The site will be available at http://localhost:3000
 
 ```bash
 # Run linting
-npm run lint
+bun run lint
 
 # Format code
-npm run fmt
+bun run fmt
 ```
