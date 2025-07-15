@@ -146,19 +146,16 @@ const NextAppShowcase = () => {
 									icon={<Calendar className="h-5 w-5 text-terminal-cyan" />}
 									title="Stundenplan"
 									description="Behalte deine Vorlesungen im Blick"
-									delay={0.5}
 								/>
 								<FeatureItem
 									icon={<MapPin className="h-5 w-5 text-terminal-cyan" />}
 									title="Raumfinder"
 									description="Finde freie Räume zum Lernen"
-									delay={0.6}
 								/>
 								<FeatureItem
 									icon={<ForkKnife className="h-5 w-5 text-terminal-cyan" />}
 									title="Essen"
 									description="Aktuelle Speisepläne der Mensen"
-									delay={0.7}
 								/>
 							</div>
 
