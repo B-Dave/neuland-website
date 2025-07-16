@@ -65,7 +65,7 @@ const TerminalSection: React.FC<TerminalSectionProps> = ({
 
 	return (
 		<section
-			className={`${classNames} mb-16 relative`}
+			className={`${classNames} mb-20 relative`}
 			id={id}
 			ref={sectionRef}
 		>
