@@ -54,7 +54,8 @@ Zum Abschluss des Semesters wurde Neuland zum Sommerfest der Vereine eingeladen,
 
 ## Projekte und Neuland Next
 
-Unter den zahlreichen Projekten gab es einige bedeutende Entwicklungen. So wurde die alte Neuland-App, auch bekannt als neuland.app, die lediglich als Webversion verfügbar war, eingestellt und vollständig durch die **[Neuland Next App ](https://neuland.app/de)**ersetzt. Die Neuland Next App hingegen erhielt eine Webversion. Doch damit nicht genug: Auch das Design wurde überarbeitet, um noch besser auf die Bedürfnisse der Studierenden abgestimmt zu sein. Zudem ist die App nun nicht mehr ausschließlich im App Store und Play Store erhältlich. Weitere Informationen finden Sie in unseren [Blogbeiträgen](https://neuland-ingolstadt.de/blog/tags/app).
+Unter den zahlreichen Projekten gab es einige bedeutende Entwicklungen. So wurde die alte Neuland-App, auch bekannt als neuland.app, die lediglich als Webversion verfügbar war, eingestellt und vollständig durch die [**Neuland Next App**](https://neuland.app/de) ersetzt.
+Die Neuland Next App hingegen erhielt eine Webversion. Doch damit nicht genug: Auch das Design wurde überarbeitet, um noch besser auf die Bedürfnisse der Studierenden abgestimmt zu sein. Zudem ist die App nun nicht mehr ausschließlich im App Store und Play Store erhältlich. Weitere Informationen finden Sie in unseren [Blogbeiträgen](https://neuland-ingolstadt.de/blog/tags/app).
 
 Neben der Neuland Next App gibt es auch die neue **Neuland Member ID**. Diese dient als Mitgliederausweis und bietet ein kryptografisch sicheres Verfahren zur Generierung und Verifizierung eines QR-Codes, um die Mitgliedschaft im Verein nachzuweisen. Dazu gehört auch eine zugehörige [Website](https://id.neuland-ingolstadt.de/learn-more), mit der ein Mitglied verifiziert werden kann.
 

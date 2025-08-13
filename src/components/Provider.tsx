@@ -1,9 +1,9 @@
-// In Next.js, this file would be called: app/providers.tsx
 'use client'
 
 import { AptabaseProvider } from '@aptabase/react'
 // Since QueryClientProvider relies on useContext under the hood, we have to put 'use client' on top
 import {
+	type DehydratedState,
 	HydrationBoundary,
 	isServer,
 	QueryClient,
@@ -48,7 +48,7 @@ export default function Providers({
 	dehydratedState
 }: {
 	children: React.ReactNode
-	dehydratedState?: unknown
+	dehydratedState?: DehydratedState
 }) {
 	// In React 18, we need to use useState here to create a new query client
 	// on the server for each request, to avoid sharing state between users.
