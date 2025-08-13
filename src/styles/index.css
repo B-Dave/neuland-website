@@ -234,10 +234,11 @@
 
 	/* Style for tables */
 	article table {
-		@apply w-full mb-6 border-collapse border border-terminal-window-border bg-terminal-bg/80;
-		display: block;
+		@apply mb-6 border-collapse border border-terminal-window-border;
+		display: table;
 		overflow-x: auto;
 		max-width: 100%;
+		background: transparent; /* Remove the background blocking */
 	}
 
 	article th,
@@ -249,11 +250,11 @@
 	}
 
 	article th {
-		@apply bg-terminal-window text-terminal-text font-semibold;
+		@apply bg-terminal-window/50 text-terminal-text font-semibold; /* Semi-transparent background */
 	}
 
 	article tbody tr:hover {
-		@apply bg-terminal-window-border/30;
+		@apply bg-terminal-window-border/20; /* Reduced opacity for hover */
 	}
 }
 
