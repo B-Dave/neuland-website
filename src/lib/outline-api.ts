@@ -46,7 +46,7 @@ export async function fetchOutlineDocument(
 				body: JSON.stringify({
 					id: documentId
 				}),
-				next: { revalidate: 3600 }
+				cache: 'no-store'
 			}
 		)
 
