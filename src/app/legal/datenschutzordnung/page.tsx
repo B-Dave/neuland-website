@@ -8,49 +8,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-
-async function fetchDatenschutzContent() {
-	try {
-		const ordnungResponse = await fetch(
-			'https://pad.informatik.sexy/s/Datenschutzordnung/download',
-			{
-				next: { revalidate: 3600 }
-			}
-		)
-
-		const hinweiseResponse = await fetch(
-			'https://pad.informatik.sexy/s/Datenschutzhinweise/download',
-			{
-				next: { revalidate: 3600 }
-			}
-		)
-
-		if (!ordnungResponse.ok) {
-			throw new Error(
-				`Failed to fetch Datenschutzordnung content: ${ordnungResponse.status}`
-			)
-		}
-
-		if (!hinweiseResponse.ok) {
-			throw new Error(
-				`Failed to fetch Datenschutzhinweise content: ${hinweiseResponse.status}`
-			)
-		}
-
-		const ordnungContent = await ordnungResponse.text()
-		const hinweiseContent = await hinweiseResponse.text()
-
-		const markdownContents = `${ordnungContent}\n\n${hinweiseContent}`
-
-		return { success: true, markdownContents }
-	} catch (error) {
-		console.error('Error fetching Datenschutz content:', error)
-		return { success: false, error: String(error) }
-	}
-}
+import { fetchMultipleOutlineDocuments, OUTLINE_IDS } from '@/lib/outline-api'
 
 export default async function DatenschutzOrdnung() {
-	const result = await fetchDatenschutzContent()
+	const result = await fetchMultipleOutlineDocuments([
+		OUTLINE_IDS.datenschutzOrdnung,
+		OUTLINE_IDS.datenschutzHinweise
+	])
 
 	return (
 		<div className="pt-20">
@@ -68,8 +32,8 @@ export default async function DatenschutzOrdnung() {
 				</BreadcrumbList>
 			</Breadcrumb>
 
-			{result.success && result.markdownContents ? (
-				<MarkdownContent content={result.markdownContents} showToc />
+			{result.success && result.content ? (
+				<MarkdownContent content={result.content} showToc />
 			) : (
 				<FetchErrorMessage
 					title="der Datenschutzordnung"

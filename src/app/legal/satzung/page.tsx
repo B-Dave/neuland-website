@@ -8,28 +8,10 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-
-async function fetchSatzungContent() {
-	try {
-		const response = await fetch(
-			'https://pad.informatik.sexy/Satzung/download',
-			{
-				next: { revalidate: 3600 }
-			}
-		)
-		if (!response.ok) {
-			throw new Error(`Failed to fetch Satzung content: ${response.status}`)
-		}
-
-		return { success: true, content: await response.text() }
-	} catch (error) {
-		console.error('Error fetching Satzung content:', error)
-		return { success: false, error: String(error) }
-	}
-}
+import { fetchOutlineDocument, OUTLINE_IDS } from '@/lib/outline-api'
 
 export default async function Satzung() {
-	const result = await fetchSatzungContent()
+	const result = await fetchOutlineDocument(OUTLINE_IDS.satzung)
 
 	return (
 		<div className="pt-20">
@@ -48,7 +30,10 @@ export default async function Satzung() {
 			</Breadcrumb>
 
 			{result.success && result.content ? (
-				<MarkdownContent content={result.content} showToc />
+				<MarkdownContent
+					content={`# ${result.title}\n\n${result.content}`}
+					showToc
+				/>
 			) : (
 				<FetchErrorMessage title="der Satzung" error={result.error} />
 			)}

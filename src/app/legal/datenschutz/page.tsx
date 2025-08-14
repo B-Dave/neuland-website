@@ -8,29 +8,10 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-
-async function fetchDatenschutzContent() {
-	try {
-		const response = await fetch(
-			'https://pad.informatik.sexy/jEf0CAYVRim-4zjgJ7gaBQ/download',
-			{
-				next: { revalidate: 3600 }
-			}
-		)
-
-		if (!response.ok) {
-			throw new Error(`Failed to fetch Datenschutz content: ${response.status}`)
-		}
-
-		return { success: true, content: await response.text() }
-	} catch (error) {
-		console.error('Error fetching Datenschutz content:', error)
-		return { success: false, error: String(error) }
-	}
-}
+import { fetchOutlineDocument, OUTLINE_IDS } from '@/lib/outline-api'
 
 export default async function Datenschutz() {
-	const result = await fetchDatenschutzContent()
+	const result = await fetchOutlineDocument(OUTLINE_IDS.datenschutzWebsite)
 
 	return (
 		<div className="pt-20">
@@ -49,7 +30,10 @@ export default async function Datenschutz() {
 			</Breadcrumb>
 
 			{result.success && result.content ? (
-				<MarkdownContent content={result.content} showToc />
+				<MarkdownContent
+					content={`# ${result.title}\n\n${result.content}`}
+					showToc
+				/>
 			) : (
 				<FetchErrorMessage
 					title="der Datenschutz-Information"
