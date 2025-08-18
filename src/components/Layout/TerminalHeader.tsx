@@ -80,7 +80,7 @@ const TerminalHeader: React.FC = () => {
 		{ name: 'Blog', href: '/blog', isPage: true },
 		{
 			name: 'Login',
-			href: 'https://wiki.informatik.sexy/books/einfuhrung/page/willkommen',
+			href: 'https://notes.neuland-ingolstadt.de.',
 			isPage: false,
 			external: true
 		}

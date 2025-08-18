@@ -287,7 +287,7 @@ const NextAppShowcase = () => {
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 					viewport={{ once: true }}
-					className="mb-16"
+					className="mb-16 hidden lg:block"
 				>
 					<h3 className="text-2xl font-bold text-center mb-12">
 						Die Features auf einen Blick

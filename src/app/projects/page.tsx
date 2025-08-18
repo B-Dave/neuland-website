@@ -10,7 +10,9 @@ import TerminalButton from '@/components/TerminalButton'
 import projectsData from '@/data/projects.json'
 
 const uniqueTags = (projectsData as ProjectDetails[]).reduce((acc, project) => {
-	project.tags?.forEach((tag) => acc.add(tag))
+	project.tags?.forEach((tag) => {
+		acc.add(tag)
+	})
 	return acc
 }, new Set<string>())
 

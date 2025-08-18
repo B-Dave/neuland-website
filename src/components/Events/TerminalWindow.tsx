@@ -61,7 +61,9 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
 
 	useEffect(() => {
 		return () => {
-			timeoutsRef.current.forEach((id) => window.clearTimeout(id))
+			timeoutsRef.current.forEach((id) => {
+				window.clearTimeout(id)
+			})
 		}
 	}, [])
 

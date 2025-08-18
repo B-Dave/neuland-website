@@ -121,7 +121,7 @@ const GameOfLife: React.FC = () => {
 		width: number,
 		height: number
 	) => {
-		ctx.fillStyle = 'rgb(0, 6, 0)'
+		ctx.fillStyle = 'rgb(0, 4, 0)'
 		ctx.fillRect(0, 0, width, height)
 
 		const cellSize = cellSizeRef.current
