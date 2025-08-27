@@ -1,6 +1,6 @@
 ---
 title: "3D-Druck Workshop – Technik zum Anfassen"
-authors: ["pl0ss"]
+authors: ["pl0ss","d.beck"]
 date: 2025-05-31T22:37
 description: "Am 31. Mai 2025 fand der zweite 3D-Druck Workshop von Neuland an der THI statt."
 tags:
